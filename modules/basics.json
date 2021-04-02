@@ -1,0 +1,118 @@
+{
+    "settings" : {
+        "name" : "basics"
+    },
+    "parents" : [
+    ],
+    "tables" : [
+        {
+            "name" : "Files",
+            "fields" : [
+                {
+                    "name" : "id",
+                    "type" : "integer",
+                    "constraints" : "PRIMARY KEY"
+                },
+                {
+                    "name" : "name",
+                    "type" : "text",
+                    "constraints" : "UNIQUE"
+                },
+                {
+                    "name" : "date",
+                    "type" : "text"
+                },
+                {
+                    "name" : "rank",
+                    "type" : "integer"
+                }
+            ]
+        },
+        {
+            "name" : "lines",
+            "fields" : [
+                {
+                    "name" : "id",
+                    "type" : "integer",
+                    "constraints" : "PRIMARY KEY"
+                },
+                {
+                    "name" : "fileid",
+                    "type" : "integer"
+                },
+                {
+                    "name" : "serveurip",
+                    "type" : "integer"
+                },
+                {
+                    "name" : "date",
+                    "type" : "text"
+                },
+                {
+                    "name" : "type",
+                    "type" : "text"
+                },
+                {
+                    "name" : "time",
+                    "type" : "text"
+                },
+                {
+                    "name" : "message",
+                    "type" : "text"
+                }
+            ],
+            "constraints" : [
+                "FOREIGN KEY fileid REFERENCES files(id) ON UPDATE CASCADE ON DELETE CASCADE",
+                "FOREIGN KEY serveurip REFERENCES serveurconnections(id) ON UPDATE CASCADE ON DELETE CASCADE"
+            ]
+        },
+        {
+            "name" : "serveurs",
+            "fields" : [
+                {
+                    "name" : "id",
+                    "type" : "integer",
+                    "constraints" : "PRIMARY KEY"
+                },
+                {
+                    "name" : "name",
+                    "type" : "text",
+                    "constraints": "UNIQUE"
+                },
+                {
+                    "name" : "description",
+                    "type" : "text"
+                }
+            ]
+        },
+        {
+            "name" : "serveurconnections",
+            "fields" : [
+                {
+                    "name" : "id",
+                    "type" : "integer",
+                    "constraints" : "PRIMARY KEY"
+                },
+                {
+                    "name" : "connection",
+                    "type" : "text"
+                },
+                {
+                    "name" : "serveurip",
+                    "type" : "text"
+                },
+                {
+                    "name" : "port",
+                    "type" : "text"
+                },
+                {
+                    "name" : "serveurid",
+                    "type" : "integer"
+                }
+            ],
+            "constraints" : [
+                "FOREIGN KEY serveurid REFERENCES serveurs(id) ON UPDATE CASCADE ON DELETE CASCADE"
+            ]
+        }
+    ]
+}

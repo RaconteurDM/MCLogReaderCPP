@@ -1,0 +1,24 @@
+##Makefile for MCLogReader
+
+EXEC = ./MCLogReader.exe
+
+SRC = src/*/*.cpp src/main.cpp
+
+INCLUDE = -I./src\WJson -I./src\rapidjson\ -I.\src\MCLRInfo\ -I.\src\Config\ -I.\src\Modules\
+
+FLAGS = -std=c++17
+
+DEBUG = -g -g3 -ggdb
+
+all:
+	make compil
+
+re:
+	make fclean
+	make compil
+
+compil:
+	g++ $(SRC) $(INCLUDE) $(FLAGS) -o $(EXEC)
+
+fclean:
+	del .\MCLogReader.exe

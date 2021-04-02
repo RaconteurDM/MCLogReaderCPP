@@ -4,7 +4,7 @@ EXEC = ./MCLogReader.exe
 
 SRC = src/*/*.cpp src/main.cpp
 
-INCLUDE = -I./src\WJson -I./src\rapidjson\ -I.\src\MCLRInfo\ -I.\src\Config\ -I.\src\Modules\
+INCLUDE = -I./src\WJson -I./src\rapidjson\ -I.\src\MCLRInfo\ -I.\src\Config\ -I.\src\Modules\ -I.\src\Regex\
 
 FLAGS = -std=c++17
 

@@ -1,5 +1,7 @@
 {
     "name" : "basics",
+    "parents" : [
+    ],
     "modlist" : [
         "reader"
     ]

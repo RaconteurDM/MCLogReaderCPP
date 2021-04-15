@@ -22,7 +22,6 @@ void WJsonDoc::parseJsonFile(std::string file)
                      std::istreambuf_iterator<char>());
 
     this->Parse(str.c_str());
-    assert(this->IsObject());
     if (this->GetType() == 0)
         throw MCLRError(file + ": Invalid JSON", "WJsonDoc::parseJsonFile");
 }

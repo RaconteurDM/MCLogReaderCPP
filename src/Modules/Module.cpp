@@ -31,6 +31,5 @@ void Module::verifyModule(std::string JSONfile)
     JsonValueVerif().verif("settings", OBJECT, _JSON, true, true);
     JsonValueVerif().verif("name", STRING, _JSON["settings"], true, true);
     _name = _JSON["settings"]["name"].GetString();
-    _hasParents = JsonValueVerif().verif("parents", ARRAY, _JSON, false, true);
     JsonValueVerif().verif("tables", ARRAY, _JSON, true, true);
 }

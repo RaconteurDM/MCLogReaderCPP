@@ -20,7 +20,6 @@ namespace MCLR
         WJsonDoc _JSON;
         std::vector<Table> _tableList;
         std::string _name;
-        bool _hasParents;
 
     public:
         Module(std::string JSONFile);

@@ -2,8 +2,6 @@
     "settings" : {
         "name" : "reader"
     },
-    "parents" : [
-    ],
     "tables" : [
         {
             "name" : "Files",

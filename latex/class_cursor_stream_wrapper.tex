@@ -1,0 +1,61 @@
+\hypertarget{class_cursor_stream_wrapper}{}\doxysection{Cursor\+Stream\+Wrapper$<$ Input\+Stream, Encoding $>$ Class Template Reference}
+\label{class_cursor_stream_wrapper}\index{CursorStreamWrapper$<$ InputStream, Encoding $>$@{CursorStreamWrapper$<$ InputStream, Encoding $>$}}
+
+
+Cursor stream wrapper for counting line and column number if error exists.  
+
+
+
+
+{\ttfamily \#include $<$cursorstreamwrapper.\+h$>$}
+
+Inheritance diagram for Cursor\+Stream\+Wrapper$<$ Input\+Stream, Encoding $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_cursor_stream_wrapper}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_cursor_stream_wrapper_a4bab1186bfeebbcf00719c2613b0dca6}\label{class_cursor_stream_wrapper_a4bab1186bfeebbcf00719c2613b0dca6}} 
+typedef Encoding\+::\+Ch {\bfseries Ch}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_cursor_stream_wrapper_a8d9a0109e19ab4fb7a79091cefe608a7}\label{class_cursor_stream_wrapper_a8d9a0109e19ab4fb7a79091cefe608a7}} 
+{\bfseries Cursor\+Stream\+Wrapper} (Input\+Stream \&is)
+\item 
+\mbox{\Hypertarget{class_cursor_stream_wrapper_af0bbad24ff7ad101cdf9842760deb0f6}\label{class_cursor_stream_wrapper_af0bbad24ff7ad101cdf9842760deb0f6}} 
+Ch {\bfseries Take} ()
+\item 
+\mbox{\Hypertarget{class_cursor_stream_wrapper_ad5cc5b06be7fb5afb7c3d4a82b5ef8ce}\label{class_cursor_stream_wrapper_ad5cc5b06be7fb5afb7c3d4a82b5ef8ce}} 
+size\+\_\+t \mbox{\hyperlink{class_cursor_stream_wrapper_ad5cc5b06be7fb5afb7c3d4a82b5ef8ce}{Get\+Line}} () const
+\begin{DoxyCompactList}\small\item\em Get the error line number, if error exists. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_cursor_stream_wrapper_afdd243889599c9c9edfacea82674a8f4}\label{class_cursor_stream_wrapper_afdd243889599c9c9edfacea82674a8f4}} 
+size\+\_\+t \mbox{\hyperlink{class_cursor_stream_wrapper_afdd243889599c9c9edfacea82674a8f4}{Get\+Column}} () const
+\begin{DoxyCompactList}\small\item\em Get the error column number, if error exists. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Input\+Stream, typename Encoding = UTF8$<$$>$$>$\newline
+class Cursor\+Stream\+Wrapper$<$ Input\+Stream, Encoding $>$}
+
+Cursor stream wrapper for counting line and column number if error exists. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Input\+Stream} & Any stream that implements Stream Concept \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 39 of file cursorstreamwrapper.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/rapidjson/cursorstreamwrapper.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,88 @@
+\hypertarget{class_m_c_l_r_1_1_module}{}\doxysection{MCLR\+::Module Class Reference}
+\label{class_m_c_l_r_1_1_module}\index{MCLR::Module@{MCLR::Module}}
+
+
+Class for construct and contain module data.  
+
+
+
+
+{\ttfamily \#include $<$Module.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_m_c_l_r_1_1_module_a20534ebe55ded790bda35f0d64fa2b65}{Module}} (std\+::string JSONFile)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_m_c_l_r_1_1_module}{Module}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_m_c_l_r_1_1_module_aa1c6eb98a140da1f1c1bd834a2a3240a}\label{class_m_c_l_r_1_1_module_aa1c6eb98a140da1f1c1bd834a2a3240a}} 
+\mbox{\hyperlink{class_m_c_l_r_1_1_module_aa1c6eb98a140da1f1c1bd834a2a3240a}{$\sim$\+Module}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_m_c_l_r_1_1_module}{Module}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_c_l_r_1_1_module_ade0f94f78205a375264c22d2d10046cb}{load\+Tables}} (std\+::string JSONfile)
+\begin{DoxyCompactList}\small\item\em Load all instrcutions for SQL creations of all the module\textquotesingle{}s tables from JSON. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for construct and contain module data. 
+
+Definition at line 28 of file Module.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_m_c_l_r_1_1_module_a20534ebe55ded790bda35f0d64fa2b65}\label{class_m_c_l_r_1_1_module_a20534ebe55ded790bda35f0d64fa2b65}} 
+\index{MCLR::Module@{MCLR::Module}!Module@{Module}}
+\index{Module@{Module}!MCLR::Module@{MCLR::Module}}
+\doxysubsubsection{\texorpdfstring{Module()}{Module()}}
+{\footnotesize\ttfamily Module\+::\+Module (\begin{DoxyParamCaption}\item[{std\+::string}]{JSONFile }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_m_c_l_r_1_1_module}{Module}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em JSONFile} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 21 of file Module.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23     \_JSON.\mbox{\hyperlink{class_m_c_l_r_1_1_w_json_doc_aceb0b3bbd74da46d244a0e6039f21aa8}{parseJsonFile}}(JSONfile);}
+\DoxyCodeLine{24     verifyModule(JSONfile);}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_logs}{MCLRLogs}}(\textcolor{stringliteral}{"{}ModuleLoad"{}}, \textcolor{stringliteral}{"{}Create "{}} + \_name + \textcolor{stringliteral}{"{} module"{}});}
+\DoxyCodeLine{26     \textcolor{keywordflow}{for} (Value::ConstValueIterator itr = \_JSON[\textcolor{stringliteral}{"{}tables"{}}].Begin(); itr != \_JSON[\textcolor{stringliteral}{"{}tables"{}}].End(); ++itr) \{}
+\DoxyCodeLine{27         \textcolor{keywordflow}{if} (itr-\/>IsObject())}
+\DoxyCodeLine{28             \_tableList.push\_back(\mbox{\hyperlink{class_m_c_l_r_1_1_table}{Table}}(*itr));}
+\DoxyCodeLine{29     \}}
+\DoxyCodeLine{30     \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_logs}{MCLRLogs}}(\textcolor{stringliteral}{"{}ModuleLoad"{}}, \textcolor{stringliteral}{"{}Module "{}} + \_name + \textcolor{stringliteral}{"{} created"{}});}
+\DoxyCodeLine{31 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_m_c_l_r_1_1_module_ade0f94f78205a375264c22d2d10046cb}\label{class_m_c_l_r_1_1_module_ade0f94f78205a375264c22d2d10046cb}} 
+\index{MCLR::Module@{MCLR::Module}!loadTables@{loadTables}}
+\index{loadTables@{loadTables}!MCLR::Module@{MCLR::Module}}
+\doxysubsubsection{\texorpdfstring{loadTables()}{loadTables()}}
+{\footnotesize\ttfamily void MCLR\+::\+Module\+::load\+Tables (\begin{DoxyParamCaption}\item[{std\+::string}]{JSONfile }\end{DoxyParamCaption})}
+
+
+
+Load all instrcutions for SQL creations of all the module\textquotesingle{}s tables from JSON. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em JSONfile} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Modules/\mbox{\hyperlink{_module_8hpp}{Module.\+hpp}}\item 
+src/\+Modules/\mbox{\hyperlink{_module_8cpp}{Module.\+cpp}}\end{DoxyCompactItemize}

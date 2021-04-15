@@ -1,6 +1,13 @@
-//
-// Regex method cpp
-//
+/**
+ * @file Regex.cpp
+ * @author Paul (paul.brancieq@epitech.eu)
+ * @brief Regex for MCLR
+ * @version 0.1
+ * @date 2021-04-16
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
 
 #include "Regex.hpp"
 

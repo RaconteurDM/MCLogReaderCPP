@@ -1,11 +1,18 @@
-//
-// Methods def for MCRLLogs
-//
+/**
+ * @file MCLRInfo.cpp
+ * @author Paul (paul.brancieq@epitech.eu)
+ * @brief Code for MCLR interns Logs
+ * @version 0.1
+ * @date 2021-04-16
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
 
 #include "MCLRInfo.hpp"
 
 using namespace MCLR;
-using namespace Wjson;
+using namespace MCLR;
 
 MCLRLogs::MCLRLogs()
 {

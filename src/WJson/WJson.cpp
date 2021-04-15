@@ -1,12 +1,19 @@
-//
-// Definition Wjson methods
-//
+/**
+ * @file WJson.cpp
+ * @author Paul (paul.brancieq@epitech.eu)
+ * @brief Code for rapidJson wrapper
+ * @version 0.1
+ * @date 2021-04-16
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
 
 #include "WJson.hpp"
 #include "MCLRInfo.hpp"
 #include <iostream>
 
-using namespace Wjson;
+using namespace MCLR;
 using namespace MCLR;
 
 WJsonDoc::WJsonDoc() : Document() {

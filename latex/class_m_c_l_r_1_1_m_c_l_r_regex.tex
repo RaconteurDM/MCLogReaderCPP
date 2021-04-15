@@ -1,0 +1,241 @@
+\hypertarget{class_m_c_l_r_1_1_m_c_l_r_regex}{}\doxysection{MCLR\+::MCLRRegex Class Reference}
+\label{class_m_c_l_r_1_1_m_c_l_r_regex}\index{MCLR::MCLRRegex@{MCLR::MCLRRegex}}
+
+
+Regex class for MCLR.  
+
+
+
+
+{\ttfamily \#include $<$Regex.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_regex_a4331fd98d639d26e4c86f69772d07a48}{MCLRRegex}} (std\+::string rgx)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_regex}{MCLRRegex}} object from a format string. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_m_c_l_r_1_1_m_c_l_r_regex_a97dd9866d4b3af6925147a37e1f9880f}\label{class_m_c_l_r_1_1_m_c_l_r_regex_a97dd9866d4b3af6925147a37e1f9880f}} 
+\mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_regex_a97dd9866d4b3af6925147a37e1f9880f}{$\sim$\+MCLRRegex}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_regex}{MCLRRegex}} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_regex_ad7ba4385a2fa871dade29be00487d982}{match}} (std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Verify if \textquotesingle{}str\textquotesingle{} match the regex. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_regex_a64047d022c0ecaaab11d20ed80ec5b1d}{contain}} (std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Verify if \textquotesingle{}str\textquotesingle{} contain a substring matching the regex. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_regex_a49414cdb9164f7d2187e5b427d5d8ef5}{tokenize}} (std\+::string str)
+\begin{DoxyCompactList}\small\item\em Make a list of token matching the regex in \textquotesingle{}str\textquotesingle{}. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_regex_ad3925c1cc57771d5a8d832bee9fa6cdd}{split}} (std\+::string str)
+\begin{DoxyCompactList}\small\item\em Split \textquotesingle{}str\textquotesingle{} by regex ans return an array of the diffrent parts. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_regex_a739263401f9ee14159e47f54b09b1259}{replace}} (std\+::string \&str, std\+::string \&replace)
+\begin{DoxyCompactList}\small\item\em Replace the parts matching the regex by \textquotesingle{}replace\textquotesingle{} in \textquotesingle{}str\textquotesingle{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Regex class for MCLR. 
+
+Definition at line 24 of file Regex.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_m_c_l_r_1_1_m_c_l_r_regex_a4331fd98d639d26e4c86f69772d07a48}\label{class_m_c_l_r_1_1_m_c_l_r_regex_a4331fd98d639d26e4c86f69772d07a48}} 
+\index{MCLR::MCLRRegex@{MCLR::MCLRRegex}!MCLRRegex@{MCLRRegex}}
+\index{MCLRRegex@{MCLRRegex}!MCLR::MCLRRegex@{MCLR::MCLRRegex}}
+\doxysubsubsection{\texorpdfstring{MCLRRegex()}{MCLRRegex()}}
+{\footnotesize\ttfamily MCLR\+::\+MCLRRegex\+::\+MCLRRegex (\begin{DoxyParamCaption}\item[{std\+::string}]{rgx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_regex}{MCLRRegex}} object from a format string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rgx} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 42 of file Regex.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42 : \_rgx\_str(rgx) \{ compileRgx(); \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_m_c_l_r_1_1_m_c_l_r_regex_a64047d022c0ecaaab11d20ed80ec5b1d}\label{class_m_c_l_r_1_1_m_c_l_r_regex_a64047d022c0ecaaab11d20ed80ec5b1d}} 
+\index{MCLR::MCLRRegex@{MCLR::MCLRRegex}!contain@{contain}}
+\index{contain@{contain}!MCLR::MCLRRegex@{MCLR::MCLRRegex}}
+\doxysubsubsection{\texorpdfstring{contain()}{contain()}}
+{\footnotesize\ttfamily bool MCLR\+::\+MCLRRegex\+::contain (\begin{DoxyParamCaption}\item[{std\+::string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Verify if \textquotesingle{}str\textquotesingle{} contain a substring matching the regex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Definition at line 19 of file Regex.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21     \textcolor{keywordflow}{return} (std::regex\_search(str, \_rgx));}
+\DoxyCodeLine{22 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_m_c_l_r_1_1_m_c_l_r_regex_ad7ba4385a2fa871dade29be00487d982}\label{class_m_c_l_r_1_1_m_c_l_r_regex_ad7ba4385a2fa871dade29be00487d982}} 
+\index{MCLR::MCLRRegex@{MCLR::MCLRRegex}!match@{match}}
+\index{match@{match}!MCLR::MCLRRegex@{MCLR::MCLRRegex}}
+\doxysubsubsection{\texorpdfstring{match()}{match()}}
+{\footnotesize\ttfamily bool MCLR\+::\+MCLRRegex\+::match (\begin{DoxyParamCaption}\item[{std\+::string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Verify if \textquotesingle{}str\textquotesingle{} match the regex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Definition at line 14 of file Regex.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16     \textcolor{keywordflow}{return} (std::regex\_match(str, \_rgx));}
+\DoxyCodeLine{17 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_m_c_l_r_1_1_m_c_l_r_regex_a739263401f9ee14159e47f54b09b1259}\label{class_m_c_l_r_1_1_m_c_l_r_regex_a739263401f9ee14159e47f54b09b1259}} 
+\index{MCLR::MCLRRegex@{MCLR::MCLRRegex}!replace@{replace}}
+\index{replace@{replace}!MCLR::MCLRRegex@{MCLR::MCLRRegex}}
+\doxysubsubsection{\texorpdfstring{replace()}{replace()}}
+{\footnotesize\ttfamily std\+::string MCLR\+::\+MCLRRegex\+::replace (\begin{DoxyParamCaption}\item[{std\+::string \&}]{str,  }\item[{std\+::string \&}]{replace }\end{DoxyParamCaption})}
+
+
+
+Replace the parts matching the regex by \textquotesingle{}replace\textquotesingle{} in \textquotesingle{}str\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & \\
+\hline
+{\em replace} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Definition at line 24 of file Regex.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25 \{}
+\DoxyCodeLine{26     \textcolor{keywordflow}{return} (std::regex\_replace(str, \_rgx, \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_regex_a739263401f9ee14159e47f54b09b1259}{replace}}));}
+\DoxyCodeLine{27 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_m_c_l_r_1_1_m_c_l_r_regex_ad3925c1cc57771d5a8d832bee9fa6cdd}\label{class_m_c_l_r_1_1_m_c_l_r_regex_ad3925c1cc57771d5a8d832bee9fa6cdd}} 
+\index{MCLR::MCLRRegex@{MCLR::MCLRRegex}!split@{split}}
+\index{split@{split}!MCLR::MCLRRegex@{MCLR::MCLRRegex}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ MCLR\+::\+MCLRRegex\+::split (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
+
+
+Split \textquotesingle{}str\textquotesingle{} by regex ans return an array of the diffrent parts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::string$>$ 
+\end{DoxyReturn}
+
+
+Definition at line 43 of file Regex.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{44 \{}
+\DoxyCodeLine{45     std::vector<std::string> res;}
+\DoxyCodeLine{46     std::sregex\_token\_iterator defaultToken;}
+\DoxyCodeLine{47     std::sregex\_token\_iterator Tokens(str.begin(), str.end(), \_rgx, -\/1);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keywordflow}{while} (Tokens != defaultToken)}
+\DoxyCodeLine{50     \{}
+\DoxyCodeLine{51         res.push\_back(*Tokens);}
+\DoxyCodeLine{52         Tokens++;}
+\DoxyCodeLine{53     \}}
+\DoxyCodeLine{54     \textcolor{keywordflow}{return} (res);}
+\DoxyCodeLine{55 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_m_c_l_r_1_1_m_c_l_r_regex_a49414cdb9164f7d2187e5b427d5d8ef5}\label{class_m_c_l_r_1_1_m_c_l_r_regex_a49414cdb9164f7d2187e5b427d5d8ef5}} 
+\index{MCLR::MCLRRegex@{MCLR::MCLRRegex}!tokenize@{tokenize}}
+\index{tokenize@{tokenize}!MCLR::MCLRRegex@{MCLR::MCLRRegex}}
+\doxysubsubsection{\texorpdfstring{tokenize()}{tokenize()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ MCLR\+::\+MCLRRegex\+::tokenize (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
+
+
+Make a list of token matching the regex in \textquotesingle{}str\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::string$>$ 
+\end{DoxyReturn}
+
+
+Definition at line 29 of file Regex.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30 \{}
+\DoxyCodeLine{31     std::vector<std::string> res;}
+\DoxyCodeLine{32     std::sregex\_token\_iterator defaultToken;}
+\DoxyCodeLine{33     std::sregex\_token\_iterator Tokens(str.begin(), str.end(), \_rgx, 0);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordflow}{while} (Tokens != defaultToken)}
+\DoxyCodeLine{36     \{}
+\DoxyCodeLine{37         res.push\_back(*Tokens);}
+\DoxyCodeLine{38         Tokens++;}
+\DoxyCodeLine{39     \}}
+\DoxyCodeLine{40     \textcolor{keywordflow}{return} (res);}
+\DoxyCodeLine{41 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Regex/\mbox{\hyperlink{_regex_8hpp}{Regex.\+hpp}}\item 
+src/\+Regex/\mbox{\hyperlink{_regex_8cpp}{Regex.\+cpp}}\end{DoxyCompactItemize}

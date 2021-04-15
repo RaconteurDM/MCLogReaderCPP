@@ -1,6 +1,13 @@
-//
-// Methods definition for Fields
-//
+/**
+ * @file Field.cpp
+ * @author Paul (paul.brancieq@epitech.eu)
+ * @brief Code for field parser
+ * @version 0.1
+ * @date 2021-04-16
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
 
 #include "Module.hpp"
 #include "WJson.hpp"

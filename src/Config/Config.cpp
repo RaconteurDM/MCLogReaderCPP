@@ -1,13 +1,20 @@
-//
-// Code for config
-//
+/**
+ * @file Config.cpp
+ * @author Paul (paul.brancieq@epitech.eu)
+ * @brief Code for configuration parser
+ * @version 0.1
+ * @date 2021-04-16
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
 
 #include "Config.hpp"
 #include "MCLRInfo.hpp"
 
 using namespace MCLR;
 using namespace MCLR;
-using namespace Wjson;
+using namespace MCLR;
 
 WJsonDoc Config::_object;
 bool Config::_init = true;

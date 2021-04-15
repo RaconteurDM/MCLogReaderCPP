@@ -1,0 +1,89 @@
+\hypertarget{class_m_c_l_r_1_1_json_value_verif}{}\doxysection{MCLR\+::Json\+Value\+Verif Class Reference}
+\label{class_m_c_l_r_1_1_json_value_verif}\index{MCLR::JsonValueVerif@{MCLR::JsonValueVerif}}
+
+
+Static class for Json value verification.  
+
+
+
+
+{\ttfamily \#include $<$WJson.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_m_c_l_r_1_1_json_value_verif_a7858a66637e012fa21c9b32331492a0e}\label{class_m_c_l_r_1_1_json_value_verif_a7858a66637e012fa21c9b32331492a0e}} 
+\mbox{\hyperlink{class_m_c_l_r_1_1_json_value_verif_a7858a66637e012fa21c9b32331492a0e}{Json\+Value\+Verif}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new Json Value Verif object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_m_c_l_r_1_1_json_value_verif_aa0f3960cb9329b613723623f40f7cab2}\label{class_m_c_l_r_1_1_json_value_verif_aa0f3960cb9329b613723623f40f7cab2}} 
+\mbox{\hyperlink{class_m_c_l_r_1_1_json_value_verif_aa0f3960cb9329b613723623f40f7cab2}{$\sim$\+Json\+Value\+Verif}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the Json Value Verif object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_m_c_l_r_1_1_json_value_verif_a96a04aa476ac0e9e808311f0d88aa2bf}{verif}} (std\+::string field, \mbox{\hyperlink{_w_json_8hpp_af163680ca044ab4d0690bf1617582201}{verifs\+Types}} hoped\+Type, const rapidjson\+::\+Value \&object, bool abs\+Presence, bool abs\+Type)
+\begin{DoxyCompactList}\small\item\em Verify if the field \textquotesingle{}field\textquotesingle{} of type \textquotesingle{}hoped\+Type\textquotesingle{} exist in the object \textquotesingle{}object\textquotesingle{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Static class for Json value verification. 
+
+Definition at line 66 of file WJson.\+hpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_m_c_l_r_1_1_json_value_verif_a96a04aa476ac0e9e808311f0d88aa2bf}\label{class_m_c_l_r_1_1_json_value_verif_a96a04aa476ac0e9e808311f0d88aa2bf}} 
+\index{MCLR::JsonValueVerif@{MCLR::JsonValueVerif}!verif@{verif}}
+\index{verif@{verif}!MCLR::JsonValueVerif@{MCLR::JsonValueVerif}}
+\doxysubsubsection{\texorpdfstring{verif()}{verif()}}
+{\footnotesize\ttfamily bool Json\+Value\+Verif\+::verif (\begin{DoxyParamCaption}\item[{std\+::string}]{field,  }\item[{\mbox{\hyperlink{_w_json_8hpp_af163680ca044ab4d0690bf1617582201}{verifs\+Types}}}]{hoped\+Type,  }\item[{const rapidjson\+::\+Value \&}]{object,  }\item[{bool}]{abs\+Presence,  }\item[{bool}]{abs\+Type }\end{DoxyParamCaption})}
+
+
+
+Verify if the field \textquotesingle{}field\textquotesingle{} of type \textquotesingle{}hoped\+Type\textquotesingle{} exist in the object \textquotesingle{}object\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em field} & \\
+\hline
+{\em hoped\+Type} & \\
+\hline
+{\em object} & \\
+\hline
+{\em abs\+Presence} & If true, throw an error if the field does not exist \\
+\hline
+{\em abs\+Type} & If true, throw an error if the field is in the wrong type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Definition at line 36 of file WJson.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{37 \{}
+\DoxyCodeLine{38     \textcolor{keywordtype}{bool} state = \textcolor{keyword}{true};}
+\DoxyCodeLine{39     \textcolor{keywordflow}{if} (!\textcolor{keywordtype}{object}.HasMember(field.c\_str()))}
+\DoxyCodeLine{40     \{}
+\DoxyCodeLine{41         \textcolor{keywordflow}{if} (absPresence)}
+\DoxyCodeLine{42             \textcolor{keywordflow}{throw} \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_error}{MCLRError}}(\textcolor{stringliteral}{"{}Missing field '"{}} + field + \textcolor{stringliteral}{"{}'"{}}, \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{43         state = \textcolor{keyword}{false};}
+\DoxyCodeLine{44     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!(\textcolor{keywordtype}{object}[field.c\_str()].*verifsMap[hopedType])())}
+\DoxyCodeLine{45     \{}
+\DoxyCodeLine{46         \textcolor{keywordflow}{if} (absType)}
+\DoxyCodeLine{47             \textcolor{keywordflow}{throw} \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_error}{MCLRError}}(\textcolor{stringliteral}{"{}Wrong type for field '"{}} + field + \textcolor{stringliteral}{"{}'"{}}, \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{48         state = \textcolor{keyword}{false};}
+\DoxyCodeLine{49     \}}
+\DoxyCodeLine{50     \textcolor{keywordflow}{return} (state);}
+\DoxyCodeLine{51 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+WJson/\mbox{\hyperlink{_w_json_8hpp}{WJson.\+hpp}}\item 
+src/\+WJson/\mbox{\hyperlink{_w_json_8cpp}{WJson.\+cpp}}\end{DoxyCompactItemize}

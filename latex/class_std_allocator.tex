@@ -1,0 +1,112 @@
+\hypertarget{class_std_allocator}{}\doxysection{Std\+Allocator$<$ T, Base\+Allocator $>$ Class Template Reference}
+\label{class_std_allocator}\index{StdAllocator$<$ T, BaseAllocator $>$@{StdAllocator$<$ T, BaseAllocator $>$}}
+Inheritance diagram for Std\+Allocator$<$ T, Base\+Allocator $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_std_allocator}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_std_allocator_1_1rebind}{rebind}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_std_allocator_a09e7299a6c14e2d234bd469f1162bb21}\label{class_std_allocator_a09e7299a6c14e2d234bd469f1162bb21}} 
+typedef Base\+Allocator {\bfseries Base\+Allocator\+Type}
+\item 
+\mbox{\Hypertarget{class_std_allocator_aaf9fb6929dd63700988a5db6c5deab55}\label{class_std_allocator_aaf9fb6929dd63700988a5db6c5deab55}} 
+typedef allocator\+\_\+type\+::value\+\_\+type {\bfseries value\+\_\+type}
+\item 
+\mbox{\Hypertarget{class_std_allocator_af3be667ffd65245bf2d5bde6260e7fab}\label{class_std_allocator_af3be667ffd65245bf2d5bde6260e7fab}} 
+typedef allocator\+\_\+type\+::pointer {\bfseries pointer}
+\item 
+\mbox{\Hypertarget{class_std_allocator_a41d27b072f60e1c9e9fc851c5121f073}\label{class_std_allocator_a41d27b072f60e1c9e9fc851c5121f073}} 
+typedef allocator\+\_\+type\+::const\+\_\+pointer {\bfseries const\+\_\+pointer}
+\item 
+\mbox{\Hypertarget{class_std_allocator_a108581b842584639473a6d3fdd135598}\label{class_std_allocator_a108581b842584639473a6d3fdd135598}} 
+typedef allocator\+\_\+type\+::reference {\bfseries reference}
+\item 
+\mbox{\Hypertarget{class_std_allocator_a2bc4a28386765e3a2c105b270793a49e}\label{class_std_allocator_a2bc4a28386765e3a2c105b270793a49e}} 
+typedef allocator\+\_\+type\+::const\+\_\+reference {\bfseries const\+\_\+reference}
+\item 
+\mbox{\Hypertarget{class_std_allocator_a6d0580d6b74740b87995a9748a1ba5c4}\label{class_std_allocator_a6d0580d6b74740b87995a9748a1ba5c4}} 
+typedef allocator\+\_\+type\+::size\+\_\+type {\bfseries size\+\_\+type}
+\item 
+\mbox{\Hypertarget{class_std_allocator_afedb4e74c8671855962bc466e6563fc1}\label{class_std_allocator_afedb4e74c8671855962bc466e6563fc1}} 
+typedef allocator\+\_\+type\+::difference\+\_\+type {\bfseries difference\+\_\+type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_std_allocator_abfb16c76a06015f0ec1abe704375ace8}\label{class_std_allocator_abfb16c76a06015f0ec1abe704375ace8}} 
+{\bfseries Std\+Allocator} (const \mbox{\hyperlink{class_std_allocator}{Std\+Allocator}} \&rhs) RAPIDJSON\+\_\+\+NOEXCEPT
+\item 
+\mbox{\Hypertarget{class_std_allocator_ab41a5cbaf54473e1e10468258629bd1b}\label{class_std_allocator_ab41a5cbaf54473e1e10468258629bd1b}} 
+{\footnotesize template$<$typename U $>$ }\\{\bfseries Std\+Allocator} (const \mbox{\hyperlink{class_std_allocator}{Std\+Allocator}}$<$ U, Base\+Allocator $>$ \&rhs) RAPIDJSON\+\_\+\+NOEXCEPT
+\item 
+\mbox{\Hypertarget{class_std_allocator_a40ffe84a544bd5fe938581d09595bd1f}\label{class_std_allocator_a40ffe84a544bd5fe938581d09595bd1f}} 
+{\bfseries Std\+Allocator} (const Base\+Allocator \&allocator) RAPIDJSON\+\_\+\+NOEXCEPT
+\item 
+\mbox{\Hypertarget{class_std_allocator_aea931d35c595c47c08e6c60322f57533}\label{class_std_allocator_aea931d35c595c47c08e6c60322f57533}} 
+size\+\_\+t {\bfseries max\+\_\+size} () const RAPIDJSON\+\_\+\+NOEXCEPT
+\item 
+\mbox{\Hypertarget{class_std_allocator_afbe805c057283166350a93f6c7e7a2c6}\label{class_std_allocator_afbe805c057283166350a93f6c7e7a2c6}} 
+pointer {\bfseries address} (reference r) const RAPIDJSON\+\_\+\+NOEXCEPT
+\item 
+\mbox{\Hypertarget{class_std_allocator_a56c3bab4003eccf5b7a9d18175ef4dc2}\label{class_std_allocator_a56c3bab4003eccf5b7a9d18175ef4dc2}} 
+const\+\_\+pointer {\bfseries address} (const\+\_\+reference r) const RAPIDJSON\+\_\+\+NOEXCEPT
+\item 
+\mbox{\Hypertarget{class_std_allocator_a279cb8367857b1263c4ab014b74f842a}\label{class_std_allocator_a279cb8367857b1263c4ab014b74f842a}} 
+void {\bfseries construct} (pointer p, const\+\_\+reference r)
+\item 
+\mbox{\Hypertarget{class_std_allocator_a2aebac89efaaac9707d380b95c902567}\label{class_std_allocator_a2aebac89efaaac9707d380b95c902567}} 
+void {\bfseries destroy} (pointer p)
+\item 
+\mbox{\Hypertarget{class_std_allocator_afaabcd7ede5a9432ae8dbe604a0c2982}\label{class_std_allocator_afaabcd7ede5a9432ae8dbe604a0c2982}} 
+{\footnotesize template$<$typename U $>$ }\\U $\ast$ {\bfseries allocate} (size\+\_\+type n=1, const void $\ast$=0)
+\item 
+\mbox{\Hypertarget{class_std_allocator_a92371ba62f651185c0d3eef856080cfa}\label{class_std_allocator_a92371ba62f651185c0d3eef856080cfa}} 
+{\footnotesize template$<$typename U $>$ }\\void {\bfseries deallocate} (U $\ast$p, size\+\_\+type n=1)
+\item 
+\mbox{\Hypertarget{class_std_allocator_aa301f003f6722d438834b377c314247e}\label{class_std_allocator_aa301f003f6722d438834b377c314247e}} 
+pointer {\bfseries allocate} (size\+\_\+type n=1, const void $\ast$=0)
+\item 
+\mbox{\Hypertarget{class_std_allocator_a96a27b5bc9919d08013e727f5217db7a}\label{class_std_allocator_a96a27b5bc9919d08013e727f5217db7a}} 
+void {\bfseries deallocate} (pointer p, size\+\_\+type n=1)
+\item 
+\mbox{\Hypertarget{class_std_allocator_acec867ea79558926a5e3a5f9bbafaf31}\label{class_std_allocator_acec867ea79558926a5e3a5f9bbafaf31}} 
+{\footnotesize template$<$typename U $>$ }\\bool {\bfseries operator==} (const \mbox{\hyperlink{class_std_allocator}{Std\+Allocator}}$<$ U, Base\+Allocator $>$ \&rhs) const RAPIDJSON\+\_\+\+NOEXCEPT
+\item 
+\mbox{\Hypertarget{class_std_allocator_a6d1d3ae1297ec63f6043f06d26b99df7}\label{class_std_allocator_a6d1d3ae1297ec63f6043f06d26b99df7}} 
+{\footnotesize template$<$typename U $>$ }\\bool {\bfseries operator!=} (const \mbox{\hyperlink{class_std_allocator}{Std\+Allocator}}$<$ U, Base\+Allocator $>$ \&rhs) const RAPIDJSON\+\_\+\+NOEXCEPT
+\item 
+\mbox{\Hypertarget{class_std_allocator_ac56f94d87a4e3864ede25f65602daf64}\label{class_std_allocator_ac56f94d87a4e3864ede25f65602daf64}} 
+void $\ast$ \mbox{\hyperlink{class_std_allocator_ac56f94d87a4e3864ede25f65602daf64}{Malloc}} (size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em rapidjson Allocator concept \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_std_allocator_aa2743f6ccc125c6313917d8fd71dc847}\label{class_std_allocator_aa2743f6ccc125c6313917d8fd71dc847}} 
+void $\ast$ {\bfseries Realloc} (void $\ast$original\+Ptr, size\+\_\+t original\+Size, size\+\_\+t new\+Size)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_std_allocator_ae3b6918eee229eeb89e9535d65296d6d}\label{class_std_allocator_ae3b6918eee229eeb89e9535d65296d6d}} 
+static void {\bfseries Free} (void $\ast$ptr) RAPIDJSON\+\_\+\+NOEXCEPT
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename Base\+Allocator = Crt\+Allocator$>$\newline
+class Std\+Allocator$<$ T, Base\+Allocator $>$}
+
+
+
+Definition at line 419 of file allocators.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/rapidjson/allocators.\+h\end{DoxyCompactItemize}

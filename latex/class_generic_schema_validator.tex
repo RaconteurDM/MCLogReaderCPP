@@ -1,0 +1,386 @@
+\hypertarget{class_generic_schema_validator}{}\doxysection{Generic\+Schema\+Validator$<$ Schema\+Document\+Type, Output\+Handler, State\+Allocator $>$ Class Template Reference}
+\label{class_generic_schema_validator}\index{GenericSchemaValidator$<$ SchemaDocumentType, OutputHandler, StateAllocator $>$@{GenericSchemaValidator$<$ SchemaDocumentType, OutputHandler, StateAllocator $>$}}
+
+
+JSON Schema Validator.  
+
+
+
+
+{\ttfamily \#include $<$schema.\+h$>$}
+
+Inheritance diagram for Generic\+Schema\+Validator$<$ Schema\+Document\+Type, Output\+Handler, State\+Allocator $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=0.757268cm]{class_generic_schema_validator}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_ac79628f00f6720bbabb70b44f0d076a0}\label{class_generic_schema_validator_ac79628f00f6720bbabb70b44f0d076a0}} 
+typedef Schema\+Document\+Type\+::\+Schema\+Type {\bfseries Schema\+Type}
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_ae0c6c9a9c0ff6bae80e75c6705f2668b}\label{class_generic_schema_validator_ae0c6c9a9c0ff6bae80e75c6705f2668b}} 
+typedef Schema\+Document\+Type\+::\+Pointer\+Type {\bfseries Pointer\+Type}
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_acf1c5361bb96da87d23167d8720b1ea5}\label{class_generic_schema_validator_acf1c5361bb96da87d23167d8720b1ea5}} 
+typedef Schema\+Type\+::\+Encoding\+Type {\bfseries Encoding\+Type}
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a3c004e35c7eb9fa5a28c0ccfb8ac62dc}\label{class_generic_schema_validator_a3c004e35c7eb9fa5a28c0ccfb8ac62dc}} 
+typedef Schema\+Type\+::\+SValue {\bfseries SValue}
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a8b7dab5a0cda9cc0adaefb4401d260c1}\label{class_generic_schema_validator_a8b7dab5a0cda9cc0adaefb4401d260c1}} 
+typedef Encoding\+Type\+::\+Ch {\bfseries Ch}
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a604160fcd6af7582e0deccc205309dcf}\label{class_generic_schema_validator_a604160fcd6af7582e0deccc205309dcf}} 
+typedef \mbox{\hyperlink{struct_generic_string_ref}{Generic\+String\+Ref}}$<$ Ch $>$ {\bfseries String\+Ref\+Type}
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a435890a2dddeecb896d4ac76de03ca68}\label{class_generic_schema_validator_a435890a2dddeecb896d4ac76de03ca68}} 
+typedef \mbox{\hyperlink{class_generic_value}{Generic\+Value}}$<$ Encoding\+Type, State\+Allocator $>$ {\bfseries Value\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_generic_schema_validator_a202ee6fdbe5ae9eab3e77a81ecdfeb6d}{Generic\+Schema\+Validator}} (const Schema\+Document\+Type \&schema\+Document, State\+Allocator $\ast$allocator=0, size\+\_\+t schema\+Stack\+Capacity=k\+Default\+Schema\+Stack\+Capacity, size\+\_\+t document\+Stack\+Capacity=k\+Default\+Document\+Stack\+Capacity)
+\begin{DoxyCompactList}\small\item\em Constructor without output handler. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_generic_schema_validator_ac2027be8ca55b01cd6f38b45f4e233b4}{Generic\+Schema\+Validator}} (const Schema\+Document\+Type \&schema\+Document, Output\+Handler \&output\+Handler, State\+Allocator $\ast$allocator=0, size\+\_\+t schema\+Stack\+Capacity=k\+Default\+Schema\+Stack\+Capacity, size\+\_\+t document\+Stack\+Capacity=k\+Default\+Document\+Stack\+Capacity)
+\begin{DoxyCompactList}\small\item\em Constructor with output handler. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a3eab83d483a50efb0c0390adf3291963}\label{class_generic_schema_validator_a3eab83d483a50efb0c0390adf3291963}} 
+\mbox{\hyperlink{class_generic_schema_validator_a3eab83d483a50efb0c0390adf3291963}{$\sim$\+Generic\+Schema\+Validator}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a49efbbe098cb77728be3d48cafed17e4}\label{class_generic_schema_validator_a49efbbe098cb77728be3d48cafed17e4}} 
+void \mbox{\hyperlink{class_generic_schema_validator_a49efbbe098cb77728be3d48cafed17e4}{Reset}} ()
+\begin{DoxyCompactList}\small\item\em Reset the internal states. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a8374dd359e572f653c49293545ad3ef4}\label{class_generic_schema_validator_a8374dd359e572f653c49293545ad3ef4}} 
+void \mbox{\hyperlink{class_generic_schema_validator_a8374dd359e572f653c49293545ad3ef4}{Reset\+Error}} ()
+\begin{DoxyCompactList}\small\item\em Reset the error state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generic_schema_validator_af4840dac2410bcfe73912c30eb95b875}\label{class_generic_schema_validator_af4840dac2410bcfe73912c30eb95b875}} 
+void \mbox{\hyperlink{class_generic_schema_validator_af4840dac2410bcfe73912c30eb95b875}{Set\+Validate\+Flags}} (unsigned flags)
+\begin{DoxyCompactList}\small\item\em Implementation of ISchema\+Validator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a318bf1cf98d2f18074edd336b1bc684d}\label{class_generic_schema_validator_a318bf1cf98d2f18074edd336b1bc684d}} 
+virtual unsigned {\bfseries Get\+Validate\+Flags} () const
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a8ebda4da3d8b1fc41e57f15dd62e8f19}\label{class_generic_schema_validator_a8ebda4da3d8b1fc41e57f15dd62e8f19}} 
+virtual bool \mbox{\hyperlink{class_generic_schema_validator_a8ebda4da3d8b1fc41e57f15dd62e8f19}{Is\+Valid}} () const
+\begin{DoxyCompactList}\small\item\em Checks whether the current state is valid. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a7af476e6940d935efcf79d823c933035}\label{class_generic_schema_validator_a7af476e6940d935efcf79d823c933035}} 
+\mbox{\hyperlink{class_generic_value}{Value\+Type}} \& \mbox{\hyperlink{class_generic_schema_validator_a7af476e6940d935efcf79d823c933035}{Get\+Error}} ()
+\begin{DoxyCompactList}\small\item\em Gets the error object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a15bad1493265a83928c869dbeb034ef0}\label{class_generic_schema_validator_a15bad1493265a83928c869dbeb034ef0}} 
+const \mbox{\hyperlink{class_generic_value}{Value\+Type}} \& {\bfseries Get\+Error} () const
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a5b8f2d5c466b2a362e2e4c3bcfbfc5a8}\label{class_generic_schema_validator_a5b8f2d5c466b2a362e2e4c3bcfbfc5a8}} 
+Pointer\+Type \mbox{\hyperlink{class_generic_schema_validator_a5b8f2d5c466b2a362e2e4c3bcfbfc5a8}{Get\+Invalid\+Schema\+Pointer}} () const
+\begin{DoxyCompactList}\small\item\em Gets the JSON pointer pointed to the invalid schema. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generic_schema_validator_ab71ec18e5a013e5153a10b312a4f03bc}\label{class_generic_schema_validator_ab71ec18e5a013e5153a10b312a4f03bc}} 
+const Ch $\ast$ \mbox{\hyperlink{class_generic_schema_validator_ab71ec18e5a013e5153a10b312a4f03bc}{Get\+Invalid\+Schema\+Keyword}} () const
+\begin{DoxyCompactList}\small\item\em Gets the keyword of invalid schema. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generic_schema_validator_aeba2093eb93f77b239e9b4c27219c982}\label{class_generic_schema_validator_aeba2093eb93f77b239e9b4c27219c982}} 
+\mbox{\hyperlink{group___r_a_p_i_d_j_s_o_n___e_r_r_o_r_s_ga2e1f88f94a5d9a6817a5de0ed2f0105a}{Validate\+Error\+Code}} \mbox{\hyperlink{class_generic_schema_validator_aeba2093eb93f77b239e9b4c27219c982}{Get\+Invalid\+Schema\+Code}} () const
+\begin{DoxyCompactList}\small\item\em Gets the error code of invalid schema. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generic_schema_validator_ac10a88c4dc138bbdbe2afd041658a3b0}\label{class_generic_schema_validator_ac10a88c4dc138bbdbe2afd041658a3b0}} 
+Pointer\+Type \mbox{\hyperlink{class_generic_schema_validator_ac10a88c4dc138bbdbe2afd041658a3b0}{Get\+Invalid\+Document\+Pointer}} () const
+\begin{DoxyCompactList}\small\item\em Gets the JSON pointer pointed to the invalid value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generic_schema_validator_ab2f08413a2b23d73d4bbd09c8ca1f547}\label{class_generic_schema_validator_ab2f08413a2b23d73d4bbd09c8ca1f547}} 
+void {\bfseries Not\+Multiple\+Of} (int64\+\_\+t actual, const SValue \&expected)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a5c59d25dc44d85404cc587ebfa7455cd}\label{class_generic_schema_validator_a5c59d25dc44d85404cc587ebfa7455cd}} 
+void {\bfseries Not\+Multiple\+Of} (uint64\+\_\+t actual, const SValue \&expected)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_ae5fc8a4545fed53955ec6c57b79ca949}\label{class_generic_schema_validator_ae5fc8a4545fed53955ec6c57b79ca949}} 
+void {\bfseries Not\+Multiple\+Of} (double actual, const SValue \&expected)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a4c9c7db8a3488f84a5a86681ad1d8194}\label{class_generic_schema_validator_a4c9c7db8a3488f84a5a86681ad1d8194}} 
+void {\bfseries Above\+Maximum} (int64\+\_\+t actual, const SValue \&expected, bool exclusive)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a9262c73768789eb7cf8dc271cfec7f96}\label{class_generic_schema_validator_a9262c73768789eb7cf8dc271cfec7f96}} 
+void {\bfseries Above\+Maximum} (uint64\+\_\+t actual, const SValue \&expected, bool exclusive)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_abcf1f5b46bdae8ca20a80858d603483d}\label{class_generic_schema_validator_abcf1f5b46bdae8ca20a80858d603483d}} 
+void {\bfseries Above\+Maximum} (double actual, const SValue \&expected, bool exclusive)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a15a12306bc14f16357b4f2edea8396b7}\label{class_generic_schema_validator_a15a12306bc14f16357b4f2edea8396b7}} 
+void {\bfseries Below\+Minimum} (int64\+\_\+t actual, const SValue \&expected, bool exclusive)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_ad3db1f3852a1b2e6fada43fbcad401ea}\label{class_generic_schema_validator_ad3db1f3852a1b2e6fada43fbcad401ea}} 
+void {\bfseries Below\+Minimum} (uint64\+\_\+t actual, const SValue \&expected, bool exclusive)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_afdd4a9787239a6fc3eeb56d34fd531f4}\label{class_generic_schema_validator_afdd4a9787239a6fc3eeb56d34fd531f4}} 
+void {\bfseries Below\+Minimum} (double actual, const SValue \&expected, bool exclusive)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a227dce44e0684a73accbfb062200eb26}\label{class_generic_schema_validator_a227dce44e0684a73accbfb062200eb26}} 
+void {\bfseries Too\+Long} (const Ch $\ast$str, \mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} length, \mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} expected)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a7711071f95ead18c0dd99f69c09a4c11}\label{class_generic_schema_validator_a7711071f95ead18c0dd99f69c09a4c11}} 
+void {\bfseries Too\+Short} (const Ch $\ast$str, \mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} length, \mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} expected)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_af1be05889e634936c223f24c6e5f6ec5}\label{class_generic_schema_validator_af1be05889e634936c223f24c6e5f6ec5}} 
+void {\bfseries Does\+Not\+Match} (const Ch $\ast$str, \mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} length)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a2d47a88a3d9fb82466b5bda480b6e70f}\label{class_generic_schema_validator_a2d47a88a3d9fb82466b5bda480b6e70f}} 
+void {\bfseries Disallowed\+Item} (\mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} index)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_af39007d9bf43126dab231961a1c5064f}\label{class_generic_schema_validator_af39007d9bf43126dab231961a1c5064f}} 
+void {\bfseries Too\+Few\+Items} (\mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} actual\+Count, \mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} expected\+Count)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a78e85eeae0e2bdef827815672a7fbbc9}\label{class_generic_schema_validator_a78e85eeae0e2bdef827815672a7fbbc9}} 
+void {\bfseries Too\+Many\+Items} (\mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} actual\+Count, \mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} expected\+Count)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a82aa865146069e3ba5010d25346a71f2}\label{class_generic_schema_validator_a82aa865146069e3ba5010d25346a71f2}} 
+void {\bfseries Duplicate\+Items} (\mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} index1, \mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} index2)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_ad7ca0a327420c110e9ee6e70b2cdbc87}\label{class_generic_schema_validator_ad7ca0a327420c110e9ee6e70b2cdbc87}} 
+void {\bfseries Too\+Many\+Properties} (\mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} actual\+Count, \mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} expected\+Count)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_aaebaf28aa289826a3c39dc953b0ca466}\label{class_generic_schema_validator_aaebaf28aa289826a3c39dc953b0ca466}} 
+void {\bfseries Too\+Few\+Properties} (\mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} actual\+Count, \mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} expected\+Count)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a41c4d67e349561f13948a5045bfc50c9}\label{class_generic_schema_validator_a41c4d67e349561f13948a5045bfc50c9}} 
+void {\bfseries Start\+Missing\+Properties} ()
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a8d355eeb25364e414d9a2f8121aa0eaa}\label{class_generic_schema_validator_a8d355eeb25364e414d9a2f8121aa0eaa}} 
+void {\bfseries Add\+Missing\+Property} (const SValue \&name)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a557b7aa531ff94a6355fed8f8575fed5}\label{class_generic_schema_validator_a557b7aa531ff94a6355fed8f8575fed5}} 
+bool {\bfseries End\+Missing\+Properties} ()
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a29fa7c6f787450b2df1f9d440436aeab}\label{class_generic_schema_validator_a29fa7c6f787450b2df1f9d440436aeab}} 
+void {\bfseries Property\+Violations} (ISchema\+Validator $\ast$$\ast$subvalidators, \mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} count)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a44f06b99edfb650c6088f17e8af5b5a8}\label{class_generic_schema_validator_a44f06b99edfb650c6088f17e8af5b5a8}} 
+void {\bfseries Disallowed\+Property} (const Ch $\ast$name, \mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} length)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a767f115cc90e0f2f5bdd1c9fbdbf75df}\label{class_generic_schema_validator_a767f115cc90e0f2f5bdd1c9fbdbf75df}} 
+void {\bfseries Start\+Dependency\+Errors} ()
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_ac4faa073bc4671f42e98a59a9e9cb01a}\label{class_generic_schema_validator_ac4faa073bc4671f42e98a59a9e9cb01a}} 
+void {\bfseries Start\+Missing\+Dependent\+Properties} ()
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a85f2be483f0ddfc402a97665aff6eca9}\label{class_generic_schema_validator_a85f2be483f0ddfc402a97665aff6eca9}} 
+void {\bfseries Add\+Missing\+Dependent\+Property} (const SValue \&target\+Name)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_afdcd2ff7b5f7e24f4f3d6976fa5b803e}\label{class_generic_schema_validator_afdcd2ff7b5f7e24f4f3d6976fa5b803e}} 
+void {\bfseries End\+Missing\+Dependent\+Properties} (const SValue \&source\+Name)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a27542a75617cdc28f6846b594fe01229}\label{class_generic_schema_validator_a27542a75617cdc28f6846b594fe01229}} 
+void {\bfseries Add\+Dependency\+Schema\+Error} (const SValue \&source\+Name, ISchema\+Validator $\ast$subvalidator)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_ab6d1c964faaa0f86f9da51a0f66dc1e4}\label{class_generic_schema_validator_ab6d1c964faaa0f86f9da51a0f66dc1e4}} 
+bool {\bfseries End\+Dependency\+Errors} ()
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_afc9082d5e9733762e64df3faa88e0160}\label{class_generic_schema_validator_afc9082d5e9733762e64df3faa88e0160}} 
+void {\bfseries Disallowed\+Value} (const \mbox{\hyperlink{group___r_a_p_i_d_j_s_o_n___e_r_r_o_r_s_ga2e1f88f94a5d9a6817a5de0ed2f0105a}{Validate\+Error\+Code}} code=\mbox{\hyperlink{group___r_a_p_i_d_j_s_o_n___e_r_r_o_r_s_gga2e1f88f94a5d9a6817a5de0ed2f0105aa3c12e9cbc8a479b77776ceccbda4c289}{k\+Validate\+Error\+Enum}})
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a9904719420fd91200f80772e92fe225f}\label{class_generic_schema_validator_a9904719420fd91200f80772e92fe225f}} 
+void {\bfseries Start\+Disallowed\+Type} ()
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a68e5308e5ca9726ee66139a212b63bcc}\label{class_generic_schema_validator_a68e5308e5ca9726ee66139a212b63bcc}} 
+void {\bfseries Add\+Expected\+Type} (const typename Schema\+Type\+::\+Value\+Type \&expected\+Type)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_ae0f99bfee3e2021c05322fd5d6de2f6e}\label{class_generic_schema_validator_ae0f99bfee3e2021c05322fd5d6de2f6e}} 
+void {\bfseries End\+Disallowed\+Type} (const typename Schema\+Type\+::\+Value\+Type \&actual\+Type)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a4275b02cdd86bfe11b42afe94817eae5}\label{class_generic_schema_validator_a4275b02cdd86bfe11b42afe94817eae5}} 
+void {\bfseries Not\+All\+Of} (ISchema\+Validator $\ast$$\ast$subvalidators, \mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} count)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_aae9c45082721c650b91f8418cecc7293}\label{class_generic_schema_validator_aae9c45082721c650b91f8418cecc7293}} 
+void {\bfseries None\+Of} (ISchema\+Validator $\ast$$\ast$subvalidators, \mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} count)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_accdba5555deae396fa728d8e20ce7ed5}\label{class_generic_schema_validator_accdba5555deae396fa728d8e20ce7ed5}} 
+void {\bfseries Not\+One\+Of} (ISchema\+Validator $\ast$$\ast$subvalidators, \mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} count, bool matched=false)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_acc65a322086c792d6534e306c7a091cf}\label{class_generic_schema_validator_acc65a322086c792d6534e306c7a091cf}} 
+void {\bfseries Disallowed} ()
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a7137af73e934f50c66cbb8a9aa802ea6}\label{class_generic_schema_validator_a7137af73e934f50c66cbb8a9aa802ea6}} 
+bool {\bfseries Null} ()
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_aa25fa7456f2f308a105e400f01a4afde}\label{class_generic_schema_validator_aa25fa7456f2f308a105e400f01a4afde}} 
+bool {\bfseries Bool} (bool b)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_ad823c29990225661a4df69d34647b659}\label{class_generic_schema_validator_ad823c29990225661a4df69d34647b659}} 
+bool {\bfseries Int} (int i)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_aa688665c5274f93543c84a4b6cabe8da}\label{class_generic_schema_validator_aa688665c5274f93543c84a4b6cabe8da}} 
+bool {\bfseries Uint} (unsigned u)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_ac5a9e416e18129a7b787f251019a828f}\label{class_generic_schema_validator_ac5a9e416e18129a7b787f251019a828f}} 
+bool {\bfseries Int64} (int64\+\_\+t i)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_abfc56c58cf0b65318e376fc5f2879292}\label{class_generic_schema_validator_abfc56c58cf0b65318e376fc5f2879292}} 
+bool {\bfseries Uint64} (uint64\+\_\+t u)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_aed0532dbda3ac6f3ca7196af06066b86}\label{class_generic_schema_validator_aed0532dbda3ac6f3ca7196af06066b86}} 
+bool {\bfseries Double} (double d)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_ae4f024145421d2c1dde08a9de528722a}\label{class_generic_schema_validator_ae4f024145421d2c1dde08a9de528722a}} 
+bool {\bfseries Raw\+Number} (const Ch $\ast$str, \mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} length, bool copy)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a33cf3f83307a8fea38c3238ef75c3d58}\label{class_generic_schema_validator_a33cf3f83307a8fea38c3238ef75c3d58}} 
+bool {\bfseries String} (const Ch $\ast$str, \mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} length, bool copy)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a59972d612c3d37aae9a30222e428d216}\label{class_generic_schema_validator_a59972d612c3d37aae9a30222e428d216}} 
+bool {\bfseries Start\+Object} ()
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a6d08b458216ec4a09eed9d94800d05c1}\label{class_generic_schema_validator_a6d08b458216ec4a09eed9d94800d05c1}} 
+bool {\bfseries Key} (const Ch $\ast$str, \mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} len, bool copy)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_aa89e14f0f731f6acdec22a0f7e003037}\label{class_generic_schema_validator_aa89e14f0f731f6acdec22a0f7e003037}} 
+bool {\bfseries End\+Object} (\mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} member\+Count)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_aba13751f802531ed8cbd850778ea993c}\label{class_generic_schema_validator_aba13751f802531ed8cbd850778ea993c}} 
+bool {\bfseries Start\+Array} ()
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a67b501f0f65d40e0086ca8216882b34f}\label{class_generic_schema_validator_a67b501f0f65d40e0086ca8216882b34f}} 
+bool {\bfseries End\+Array} (\mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} element\+Count)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a48c724c1255cf1fcc53df75c791423a9}\label{class_generic_schema_validator_a48c724c1255cf1fcc53df75c791423a9}} 
+virtual ISchema\+Validator $\ast$ {\bfseries Create\+Schema\+Validator} (const Schema\+Type \&root, const bool inherit\+Continue\+On\+Errors)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_ae24fa298e328f1fd7dda2ef6267156d2}\label{class_generic_schema_validator_ae24fa298e328f1fd7dda2ef6267156d2}} 
+virtual void {\bfseries Destroy\+Schema\+Validator} (ISchema\+Validator $\ast$validator)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_abc377481583ca2095fb784be88887faa}\label{class_generic_schema_validator_abc377481583ca2095fb784be88887faa}} 
+virtual void $\ast$ {\bfseries Create\+Hasher} ()
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_ac01c45982a1f512e1ca06fe5544b0c0f}\label{class_generic_schema_validator_ac01c45982a1f512e1ca06fe5544b0c0f}} 
+virtual uint64\+\_\+t {\bfseries Get\+Hash\+Code} (void $\ast$hasher)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a007eef58be575dc562543d069ddd2710}\label{class_generic_schema_validator_a007eef58be575dc562543d069ddd2710}} 
+virtual void {\bfseries Destrory\+Hasher} (void $\ast$hasher)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a7c999dfb3118aaa08495d60eee6d3732}\label{class_generic_schema_validator_a7c999dfb3118aaa08495d60eee6d3732}} 
+virtual void $\ast$ {\bfseries Malloc\+State} (size\+\_\+t size)
+\item 
+\mbox{\Hypertarget{class_generic_schema_validator_a4e250737a411af2969a9e585a7da4187}\label{class_generic_schema_validator_a4e250737a411af2969a9e585a7da4187}} 
+virtual void {\bfseries Free\+State} (void $\ast$p)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Schema\+Document\+Type, typename Output\+Handler = Base\+Reader\+Handler$<$typename Schema\+Document\+Type\+::\+Schema\+Type\+::\+Encoding\+Type$>$, typename State\+Allocator = Crt\+Allocator$>$\newline
+class Generic\+Schema\+Validator$<$ Schema\+Document\+Type, Output\+Handler, State\+Allocator $>$}
+
+JSON Schema Validator. 
+
+A SAX style JSON schema validator. It uses a {\ttfamily \mbox{\hyperlink{class_generic_schema_document}{Generic\+Schema\+Document}}} to validate SAX events. It delegates the incoming SAX events to an output handler. The default output handler does nothing. It can be reused multiple times by calling {\ttfamily \mbox{\hyperlink{class_generic_schema_validator_a49efbbe098cb77728be3d48cafed17e4}{Reset()}}}.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Schema\+Document\+Type} & Type of schema document. \\
+\hline
+{\em Output\+Handler} & Type of output handler. Default handler does nothing. \\
+\hline
+{\em State\+Allocator} & Allocator for storing the internal validation states. \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 1842 of file schema.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_generic_schema_validator_a202ee6fdbe5ae9eab3e77a81ecdfeb6d}\label{class_generic_schema_validator_a202ee6fdbe5ae9eab3e77a81ecdfeb6d}} 
+\index{GenericSchemaValidator$<$ SchemaDocumentType, OutputHandler, StateAllocator $>$@{GenericSchemaValidator$<$ SchemaDocumentType, OutputHandler, StateAllocator $>$}!GenericSchemaValidator@{GenericSchemaValidator}}
+\index{GenericSchemaValidator@{GenericSchemaValidator}!GenericSchemaValidator$<$ SchemaDocumentType, OutputHandler, StateAllocator $>$@{GenericSchemaValidator$<$ SchemaDocumentType, OutputHandler, StateAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{GenericSchemaValidator()}{GenericSchemaValidator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Schema\+Document\+Type , typename Output\+Handler  = Base\+Reader\+Handler$<$typename Schema\+Document\+Type\+::\+Schema\+Type\+::\+Encoding\+Type$>$, typename State\+Allocator  = Crt\+Allocator$>$ \\
+\mbox{\hyperlink{class_generic_schema_validator}{Generic\+Schema\+Validator}}$<$ Schema\+Document\+Type, Output\+Handler, State\+Allocator $>$\+::\mbox{\hyperlink{class_generic_schema_validator}{Generic\+Schema\+Validator}} (\begin{DoxyParamCaption}\item[{const Schema\+Document\+Type \&}]{schema\+Document,  }\item[{State\+Allocator $\ast$}]{allocator = {\ttfamily 0},  }\item[{size\+\_\+t}]{schema\+Stack\+Capacity = {\ttfamily kDefaultSchemaStackCapacity},  }\item[{size\+\_\+t}]{document\+Stack\+Capacity = {\ttfamily kDefaultDocumentStackCapacity} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor without output handler. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em schema\+Document} & The schema document to conform to. \\
+\hline
+{\em allocator} & Optional allocator for storing internal validation states. \\
+\hline
+{\em schema\+Stack\+Capacity} & Optional initial capacity of schema path stack. \\
+\hline
+{\em document\+Stack\+Capacity} & Optional initial capacity of document path stack. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1862 of file schema.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1867         :}
+\DoxyCodeLine{1868         schemaDocument\_(\&schemaDocument),}
+\DoxyCodeLine{1869         root\_(schemaDocument.GetRoot()),}
+\DoxyCodeLine{1870         stateAllocator\_(allocator),}
+\DoxyCodeLine{1871         ownStateAllocator\_(0),}
+\DoxyCodeLine{1872         schemaStack\_(allocator, schemaStackCapacity),}
+\DoxyCodeLine{1873         documentStack\_(allocator, documentStackCapacity),}
+\DoxyCodeLine{1874         outputHandler\_(0),}
+\DoxyCodeLine{1875         error\_(\mbox{\hyperlink{rapidjson_8h_a1d1cfd8ffb84e947f82999c682b666a7a146f46700e905e8df96a6a90b5c7640f}{kObjectType}}),}
+\DoxyCodeLine{1876         currentError\_(),}
+\DoxyCodeLine{1877         missingDependents\_(),}
+\DoxyCodeLine{1878         valid\_(\textcolor{keyword}{true}),}
+\DoxyCodeLine{1879         flags\_(kValidateDefaultFlags)}
+\DoxyCodeLine{1880 \textcolor{preprocessor}{\#if RAPIDJSON\_SCHEMA\_VERBOSE}}
+\DoxyCodeLine{1881         , depth\_(0)}
+\DoxyCodeLine{1882 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1883     \{}
+\DoxyCodeLine{1884     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_generic_schema_validator_ac2027be8ca55b01cd6f38b45f4e233b4}\label{class_generic_schema_validator_ac2027be8ca55b01cd6f38b45f4e233b4}} 
+\index{GenericSchemaValidator$<$ SchemaDocumentType, OutputHandler, StateAllocator $>$@{GenericSchemaValidator$<$ SchemaDocumentType, OutputHandler, StateAllocator $>$}!GenericSchemaValidator@{GenericSchemaValidator}}
+\index{GenericSchemaValidator@{GenericSchemaValidator}!GenericSchemaValidator$<$ SchemaDocumentType, OutputHandler, StateAllocator $>$@{GenericSchemaValidator$<$ SchemaDocumentType, OutputHandler, StateAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{GenericSchemaValidator()}{GenericSchemaValidator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Schema\+Document\+Type , typename Output\+Handler  = Base\+Reader\+Handler$<$typename Schema\+Document\+Type\+::\+Schema\+Type\+::\+Encoding\+Type$>$, typename State\+Allocator  = Crt\+Allocator$>$ \\
+\mbox{\hyperlink{class_generic_schema_validator}{Generic\+Schema\+Validator}}$<$ Schema\+Document\+Type, Output\+Handler, State\+Allocator $>$\+::\mbox{\hyperlink{class_generic_schema_validator}{Generic\+Schema\+Validator}} (\begin{DoxyParamCaption}\item[{const Schema\+Document\+Type \&}]{schema\+Document,  }\item[{Output\+Handler \&}]{output\+Handler,  }\item[{State\+Allocator $\ast$}]{allocator = {\ttfamily 0},  }\item[{size\+\_\+t}]{schema\+Stack\+Capacity = {\ttfamily kDefaultSchemaStackCapacity},  }\item[{size\+\_\+t}]{document\+Stack\+Capacity = {\ttfamily kDefaultDocumentStackCapacity} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor with output handler. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em schema\+Document} & The schema document to conform to. \\
+\hline
+{\em allocator} & Optional allocator for storing internal validation states. \\
+\hline
+{\em schema\+Stack\+Capacity} & Optional initial capacity of schema path stack. \\
+\hline
+{\em document\+Stack\+Capacity} & Optional initial capacity of document path stack. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1893 of file schema.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1899         :}
+\DoxyCodeLine{1900         schemaDocument\_(\&schemaDocument),}
+\DoxyCodeLine{1901         root\_(schemaDocument.GetRoot()),}
+\DoxyCodeLine{1902         stateAllocator\_(allocator),}
+\DoxyCodeLine{1903         ownStateAllocator\_(0),}
+\DoxyCodeLine{1904         schemaStack\_(allocator, schemaStackCapacity),}
+\DoxyCodeLine{1905         documentStack\_(allocator, documentStackCapacity),}
+\DoxyCodeLine{1906         outputHandler\_(\&outputHandler),}
+\DoxyCodeLine{1907         error\_(\mbox{\hyperlink{rapidjson_8h_a1d1cfd8ffb84e947f82999c682b666a7a146f46700e905e8df96a6a90b5c7640f}{kObjectType}}),}
+\DoxyCodeLine{1908         currentError\_(),}
+\DoxyCodeLine{1909         missingDependents\_(),}
+\DoxyCodeLine{1910         valid\_(\textcolor{keyword}{true}),}
+\DoxyCodeLine{1911         flags\_(kValidateDefaultFlags)}
+\DoxyCodeLine{1912 \textcolor{preprocessor}{\#if RAPIDJSON\_SCHEMA\_VERBOSE}}
+\DoxyCodeLine{1913         , depth\_(0)}
+\DoxyCodeLine{1914 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1915     \{}
+\DoxyCodeLine{1916     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/rapidjson/fwd.\+h\item 
+src/rapidjson/schema.\+h\end{DoxyCompactItemize}

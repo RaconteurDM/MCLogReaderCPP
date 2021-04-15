@@ -11,9 +11,9 @@
 
 #include "Config.hpp"
 
-using namespace MCLRConfig;
+using namespace MCLR;
 
-namespace MCLRInfo
+namespace MCLR
 {
     class MCLRError : public std::exception
     {
@@ -44,4 +44,4 @@ namespace MCLRInfo
         inline ~MCLRLogs() {};
     };
     
-} // namespace MCLRInfo
+} // namespace MCLR

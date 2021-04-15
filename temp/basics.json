@@ -114,5 +114,7 @@
                 "FOREIGN KEY serveurid REFERENCES serveurs(id) ON UPDATE CASCADE ON DELETE CASCADE"
             ]
         }
+    ],
+    "init" : [
     ]
 }

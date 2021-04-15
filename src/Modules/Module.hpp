@@ -12,7 +12,7 @@
 
 using namespace Wjson;
 
-namespace Modules
+namespace MCLR
 {
     class Module
     {

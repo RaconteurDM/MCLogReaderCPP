@@ -9,10 +9,10 @@
 #include "Table.hpp"
 #include "Field.hpp"
 
-using namespace Modules;
-using namespace MCLRInfo;
+using namespace MCLR;
+using namespace MCLR;
 
-Modules::Table::Table(const rapidjson::Value &TableJSON)
+MCLR::Table::Table(const rapidjson::Value &TableJSON)
 {
     verifyTable(TableJSON);
     MCLRLogs("Table", "Create " + _name + " table");
@@ -31,7 +31,7 @@ Modules::Table::Table(const rapidjson::Value &TableJSON)
     MCLRLogs("Table", "Table " + _name + " created");
 }
 
-void Modules::Table::verifyTable(const rapidjson::Value &TableJSON)
+void MCLR::Table::verifyTable(const rapidjson::Value &TableJSON)
 {
     _name = "";
     if (!TableJSON.IsObject()) {
@@ -43,7 +43,7 @@ void Modules::Table::verifyTable(const rapidjson::Value &TableJSON)
     _hasConstraint = JsonValueVerif().verif("constraints", ARRAY, TableJSON, false, true);
 }
 
-std::string Modules::Table::concat()
+std::string MCLR::Table::concat()
 {
     std::string res = "";
     for (auto it = _fieldList.begin(); it != _fieldList.end(); it++)

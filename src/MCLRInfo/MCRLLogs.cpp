@@ -4,7 +4,7 @@
 
 #include "MCLRInfo.hpp"
 
-using namespace MCLRInfo;
+using namespace MCLR;
 using namespace Wjson;
 
 MCLRLogs::MCLRLogs()

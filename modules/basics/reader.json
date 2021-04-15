@@ -1,0 +1,47 @@
+{
+    "settings" : {
+        "name" : "reader"
+    },
+    "parents" : [
+    ],
+    "tables" : [
+        {
+            "name" : "Files",
+            "fields" : [
+                {
+                    "name" : "id",
+                    "type" : "integer",
+                    "constraints" : "PRIMARY KEY"
+                },
+                {
+                    "name" : "name",
+                    "type" : "text",
+                    "constraints" : "UNIQUE"
+                }
+            ]
+        },
+        {
+            "name" : "lines",
+            "fields" : [
+                {
+                    "name" : "id",
+                    "type" : "integer",
+                    "constraints" : "PRIMARY KEY"
+                },
+                {
+                    "name" : "fileid",
+                    "type" : "integer"
+                },
+                {
+                    "name" : "message",
+                    "type" : "text"
+                }
+            ],
+            "constraints" : [
+                "FOREIGN KEY fileid REFERENCES files(id) ON UPDATE CASCADE ON DELETE CASCADE"
+            ]
+        }
+    ],
+    "init" : [
+    ]
+}

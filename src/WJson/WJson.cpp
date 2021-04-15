@@ -7,7 +7,7 @@
 #include <iostream>
 
 using namespace Wjson;
-using namespace MCLRInfo;
+using namespace MCLR;
 
 WJsonDoc::WJsonDoc() : Document() {
 }

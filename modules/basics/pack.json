@@ -1,0 +1,6 @@
+{
+    "name" : "basics",
+    "modlist" : [
+        "reader"
+    ]
+}

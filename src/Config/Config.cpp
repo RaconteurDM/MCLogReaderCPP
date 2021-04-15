@@ -5,8 +5,8 @@
 #include "Config.hpp"
 #include "MCLRInfo.hpp"
 
-using namespace MCLRConfig;
-using namespace MCLRInfo;
+using namespace MCLR;
+using namespace MCLR;
 using namespace Wjson;
 
 WJsonDoc Config::_object;

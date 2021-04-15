@@ -10,7 +10,7 @@
 
 using namespace Wjson;
 
-namespace MCLRConfig
+namespace MCLR
 {
     const std::string configPath = "./config/config.json";
 

@@ -8,8 +8,8 @@
 
 #include "Table.hpp"
 
-using namespace Modules;
-using namespace MCLRInfo;
+using namespace MCLR;
+using namespace MCLR;
 
 Module::Module(std::string JSONfile)
 {

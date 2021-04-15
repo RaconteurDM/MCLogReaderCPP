@@ -8,8 +8,8 @@
 
 #include "Field.hpp"
 
-using namespace Modules;
-using namespace MCLRInfo;
+using namespace MCLR;
+using namespace MCLR;
 
 Field::Field(const rapidjson::Value &FieldJSON)
 {
@@ -31,7 +31,7 @@ void Field::verifyField(const rapidjson::Value &FieldJSON)
     _hasConstraint = JsonValueVerif().verif("constraints", STRING, FieldJSON, false, true);
 }
 
-std::string Modules::Field::concat()
+std::string MCLR::Field::concat()
 {
     auto ret = _name + " " + _type;
     if (_hasConstraint)

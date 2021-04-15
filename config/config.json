@@ -29,7 +29,8 @@
     "paths": {
         "db_path": "./db/db.db",
         "original_logs_path": "C:/Users/paulb/AppData/Roaming/.minecraft/logs/",
-        "logs_directory_path": "./logs"
+        "logs_directory_path": "./logs",
+        "modules_path": "./modules"
     },
     "MCRLLogs" : {
         "display" : {

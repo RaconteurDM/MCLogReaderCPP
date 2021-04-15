@@ -15,12 +15,12 @@ Module::Module(std::string JSONfile)
 {
     _JSON.parseJsonFile(JSONfile);
     verifyModule(JSONfile);
-    MCLRLogs("Module", "Create " + _name + " module");
+    MCLRLogs("ModuleLoad", "Create " + _name + " module");
     for (Value::ConstValueIterator itr = _JSON["tables"].Begin(); itr != _JSON["tables"].End(); ++itr) {
         if (itr->IsObject())
-            std::cout << Table(*itr).concat() << std::endl;
+            _tableList.push_back(Table(*itr));
     }
-    MCLRLogs("Module", "Module " + _name + " created");
+    MCLRLogs("ModuleLoad", "Module " + _name + " created");
 }
 
 void Module::verifyModule(std::string JSONfile)

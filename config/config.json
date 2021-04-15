@@ -33,7 +33,7 @@
     },
     "MCRLLogs" : {
         "display" : {
-            "Module" : true
+            "ModuleLoad" : true
         }
     }
 }

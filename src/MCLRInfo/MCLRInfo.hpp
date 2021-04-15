@@ -41,6 +41,7 @@ namespace MCLR
     public:
         MCLRLogs();
         MCLRLogs(std::string categ, std::string message);
+        MCLRLogs(std::string categ, std::string categdisplay, std::string message);
         inline ~MCLRLogs() {};
     };
     

@@ -15,7 +15,7 @@ using namespace MCLR;
 MCLR::Table::Table(const rapidjson::Value &TableJSON)
 {
     verifyTable(TableJSON);
-    MCLRLogs("Table", "Create " + _name + " table");
+    MCLRLogs("ModuleLoad", "TableLoad", "Create " + _name + " table");
     for (Value::ConstValueIterator itr = TableJSON["fields"].Begin(); itr != TableJSON["fields"].End(); ++itr) {
         if (!itr->IsObject())
             throw MCLRError("Invalid field: not a JSON object (table name: \"" +  _name + "\")", "Table::Table");
@@ -28,7 +28,7 @@ MCLR::Table::Table(const rapidjson::Value &TableJSON)
             _constraintsList.push_back(itr->GetString());
         }        
     }
-    MCLRLogs("Table", "Table " + _name + " created");
+    MCLRLogs("ModuleLoad", "TableLoad", "Table " + _name + " created");
 }
 
 void MCLR::Table::verifyTable(const rapidjson::Value &TableJSON)

@@ -33,5 +33,11 @@ MCLRLogs::MCLRLogs(std::string categ, std::string message)
         display(categ, message);
 }
 
+MCLRLogs::MCLRLogs(std::string categ, std::string categdisplay, std::string message)
+{
+    if (MCLRLogs::_activeDisplay[categ])
+        display(categdisplay, message);
+}
+
 std::unordered_map<std::string, bool> MCLRLogs::_activeDisplay;
 bool MCLRLogs::_init = true;

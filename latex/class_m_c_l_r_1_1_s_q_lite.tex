@@ -1,0 +1,78 @@
+\hypertarget{class_m_c_l_r_1_1_s_q_lite}{}\doxysection{MCLR\+::SQLite Class Reference}
+\label{class_m_c_l_r_1_1_s_q_lite}\index{MCLR::SQLite@{MCLR::SQLite}}
+
+
+Class handler for \mbox{\hyperlink{class_m_c_l_r_1_1_s_q_lite}{SQLite}} in MCLR app.  
+
+
+
+
+{\ttfamily \#include $<$MCLRSQLite.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_m_c_l_r_1_1_s_q_lite_ae7b35dc7e3c41543a0acde669ad4ba0d}\label{class_m_c_l_r_1_1_s_q_lite_ae7b35dc7e3c41543a0acde669ad4ba0d}} 
+\mbox{\hyperlink{class_m_c_l_r_1_1_s_q_lite_ae7b35dc7e3c41543a0acde669ad4ba0d}{SQLite}} ()
+\begin{DoxyCompactList}\small\item\em Initialize the DB if it\textquotesingle{}s not yet. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_m_c_l_r_1_1_s_q_lite_afe8ec400aaa7bcaaf8519db28c243f82}\label{class_m_c_l_r_1_1_s_q_lite_afe8ec400aaa7bcaaf8519db28c243f82}} 
+\mbox{\hyperlink{class_m_c_l_r_1_1_s_q_lite_afe8ec400aaa7bcaaf8519db28c243f82}{$\sim$\+SQLite}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_m_c_l_r_1_1_s_q_lite}{SQLite}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_m_c_l_r_1_1_s_q_lite_a8b06cbd7ea385452fea17e7e2fdaace2}\label{class_m_c_l_r_1_1_s_q_lite_a8b06cbd7ea385452fea17e7e2fdaace2}} 
+void \mbox{\hyperlink{class_m_c_l_r_1_1_s_q_lite_a8b06cbd7ea385452fea17e7e2fdaace2}{verify\+DBInit}} ()
+\begin{DoxyCompactList}\small\item\em Throw if the DB is not initialize yet. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_c_l_r_1_1_s_q_lite_a240cdf5fed26d45a4d7c03ac8606a04c}{create\+Table}} (std\+::string cmd)
+\begin{DoxyCompactList}\small\item\em Create a table with \textquotesingle{}cmd\textquotesingle{} as sql command. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_m_c_l_r_1_1_s_q_lite_a80d75a73e0621ed69077a43ffe74765d}\label{class_m_c_l_r_1_1_s_q_lite_a80d75a73e0621ed69077a43ffe74765d}} 
+void \mbox{\hyperlink{class_m_c_l_r_1_1_s_q_lite_a80d75a73e0621ed69077a43ffe74765d}{close\+DB}} ()
+\begin{DoxyCompactList}\small\item\em Close the database. To be call at the end of program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class handler for \mbox{\hyperlink{class_m_c_l_r_1_1_s_q_lite}{SQLite}} in MCLR app. 
+
+Definition at line 20 of file MCLRSQLite.\+hpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_m_c_l_r_1_1_s_q_lite_a240cdf5fed26d45a4d7c03ac8606a04c}\label{class_m_c_l_r_1_1_s_q_lite_a240cdf5fed26d45a4d7c03ac8606a04c}} 
+\index{MCLR::SQLite@{MCLR::SQLite}!createTable@{createTable}}
+\index{createTable@{createTable}!MCLR::SQLite@{MCLR::SQLite}}
+\doxysubsubsection{\texorpdfstring{createTable()}{createTable()}}
+{\footnotesize\ttfamily void SQLite\+::create\+Table (\begin{DoxyParamCaption}\item[{std\+::string}]{cmd }\end{DoxyParamCaption})}
+
+
+
+Create a table with \textquotesingle{}cmd\textquotesingle{} as sql command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 38 of file MCLRSQLite.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39 \{}
+\DoxyCodeLine{40     \textcolor{keywordtype}{int} exit = 0;}
+\DoxyCodeLine{41     \textcolor{keywordtype}{char}* messaggeError;}
+\DoxyCodeLine{42     exit = sqlite3\_exec(\_DB, cmd.c\_str(), NULL, 0, \&messaggeError);}
+\DoxyCodeLine{43     \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_logs}{MCLRLogs}}(\textcolor{stringliteral}{"{}db"{}}, \textcolor{stringliteral}{"{}DB"{}}, \textcolor{stringliteral}{"{}Creating table:\(\backslash\)n\(\backslash\)r"{}} + cmd);}
+\DoxyCodeLine{44     \textcolor{keywordflow}{if} (exit != SQLITE\_OK) \{}
+\DoxyCodeLine{45         sqlite3\_free(messaggeError);}
+\DoxyCodeLine{46         \textcolor{keywordflow}{throw} \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_error}{MCLRError}}(\textcolor{stringliteral}{"{}Error in table initialazing"{}}, \textcolor{stringliteral}{"{}SQLite::createTable"{}});}
+\DoxyCodeLine{47     \}}
+\DoxyCodeLine{48     \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_logs}{MCLRLogs}}(\textcolor{stringliteral}{"{}db"{}}, \textcolor{stringliteral}{"{}DB"{}}, \textcolor{stringliteral}{"{}Table created"{}});}
+\DoxyCodeLine{49 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+MCLRSQLite/\mbox{\hyperlink{_m_c_l_r_s_q_lite_8hpp}{MCLRSQLite.\+hpp}}\item 
+src/\+MCLRSQLite/\mbox{\hyperlink{_m_c_l_r_s_q_lite_8cpp}{MCLRSQLite.\+cpp}}\end{DoxyCompactItemize}

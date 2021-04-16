@@ -1,5 +1,5 @@
 /**
- * @file SQLite.cpp
+ * @file MCLRSQLite.cpp
  * @author Paul (paul.brancieq@epitech.eu)
  * @brief SQLite code for MCLR app
  * @version 0.1
@@ -15,7 +15,7 @@
 
 using namespace MCLR;
 
-SQLite::SQLite()
+MCLRSQLite::MCLRSQLite()
 {
     if (_init)
     {
@@ -23,19 +23,19 @@ SQLite::SQLite()
     }
 }
 
-void SQLite::initDB()
+void MCLRSQLite::initDB()
 {
     int exit = 0;
     exit = sqlite3_open("db/db.db", &_DB);
   
     if (exit) {
-        throw MCLRError("Error in when opening DB", "SQLite::initDB");
+        throw MCLRError("Error in when opening DB", "MCLRSQLite::initDB");
     }
     else
         MCLRLogs("db", "DB", "Database opened");
 }
 
-void SQLite::createTable(std::string cmd)
+void MCLRSQLite::createTable(std::string cmd)
 {
     int exit = 0;
     char* messaggeError;
@@ -43,16 +43,16 @@ void SQLite::createTable(std::string cmd)
     MCLRLogs("db", "DB", "Creating table:\n\r" + cmd);
     if (exit != SQLITE_OK) {
         sqlite3_free(messaggeError);
-        throw MCLRError("Error in table initialazing", "SQLite::createTable");
+        throw MCLRError("Error in table initialazing", "MCLRSQLite::createTable");
     }
     MCLRLogs("db", "DB", "Table created");
 }
 
-void SQLite::closeDB()
+void MCLRSQLite::closeDB()
 {
     sqlite3_close(_DB);
     MCLRLogs("db", "DB", "Database closed");
 }
 
-bool SQLite::_init = true;
-sqlite3* SQLite::_DB = NULL;
+bool MCLRSQLite::_init = true;
+sqlite3* MCLRSQLite::_DB = NULL;

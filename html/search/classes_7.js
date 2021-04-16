@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['handler_411',['Handler',['../classrapidjson_1_1_handler.html',1,'']]],
-  ['hasher_412',['Hasher',['../classinternal_1_1_hasher.html',1,'internal']]]
+  ['hash_336',['Hash',['../struct_hash.html',1,'']]],
+  ['hashelem_337',['HashElem',['../struct_hash_elem.html',1,'']]],
+  ['hiddenindexinfo_338',['HiddenIndexInfo',['../struct_hidden_index_info.html',1,'']]]
 ];

@@ -1,6 +1,21 @@
 var searchData=
 [
-  ['parseresult_434',['ParseResult',['../struct_parse_result.html',1,'']]],
-  ['percentencodestream_435',['PercentEncodeStream',['../class_generic_pointer_1_1_percent_encode_stream.html',1,'GenericPointer']]],
-  ['prettywriter_436',['PrettyWriter',['../class_pretty_writer.html',1,'']]]
+  ['p4union_379',['p4union',['../union_vdbe_op_1_1p4union.html',1,'VdbeOp']]],
+  ['pager_380',['Pager',['../struct_pager.html',1,'']]],
+  ['pagersavepoint_381',['PagerSavepoint',['../struct_pager_savepoint.html',1,'']]],
+  ['parse_382',['Parse',['../struct_parse.html',1,'']]],
+  ['parsecleanup_383',['ParseCleanup',['../struct_parse_cleanup.html',1,'']]],
+  ['pcache_384',['PCache',['../struct_p_cache.html',1,'']]],
+  ['pcache1_385',['PCache1',['../struct_p_cache1.html',1,'']]],
+  ['pgfreeslot_386',['PgFreeslot',['../struct_pg_freeslot.html',1,'']]],
+  ['pghdr_387',['PgHdr',['../struct_pg_hdr.html',1,'']]],
+  ['pghdr1_388',['PgHdr1',['../struct_pg_hdr1.html',1,'']]],
+  ['pgroup_389',['PGroup',['../struct_p_group.html',1,'']]],
+  ['pmareader_390',['PmaReader',['../struct_pma_reader.html',1,'']]],
+  ['pmawriter_391',['PmaWriter',['../struct_pma_writer.html',1,'']]],
+  ['pragmaname_392',['PragmaName',['../struct_pragma_name.html',1,'']]],
+  ['pragmavtab_393',['PragmaVtab',['../struct_pragma_vtab.html',1,'']]],
+  ['pragmavtabcursor_394',['PragmaVtabCursor',['../struct_pragma_vtab_cursor.html',1,'']]],
+  ['preupdate_395',['PreUpdate',['../struct_pre_update.html',1,'']]],
+  ['printfarguments_396',['PrintfArguments',['../struct_printf_arguments.html',1,'']]]
 ];

@@ -1,5 +1,5 @@
 /**
- * @file SQLite.hpp
+ * @file MCLRSQLite.hpp
  * @author Paul (paul.brancieq@epitech.eu)
  * @brief SQLite header for MCLR app
  * @version 0.1
@@ -13,7 +13,11 @@
 
 namespace MCLR
 {
-	class SQLite
+	/**
+	 * @brief Class handler for SQLite in MCLR app
+	 * 
+	 */
+	class MCLRSQLite
 	{
 	private:
 		static bool _init;
@@ -21,11 +25,35 @@ namespace MCLR
 
 		void initDB();
 	public:
-		SQLite();
-		inline ~SQLite() {};
+		/**
+		 * @brief Initialize the DB if it's not yet
+		 * 
+		 */
+		MCLRSQLite();
 
+		/**
+		 * @brief Destroy the MCLRSQLite object
+		 * 
+		 */
+		inline ~MCLRSQLite() {};
+
+		/**
+		 * @brief Throw if the DB is not initialize yet
+		 * 
+		 */
 		void verifyDBInit();
+
+		/**
+		 * @brief Create a table with 'cmd' as sql command
+		 * 
+		 * @param cmd 
+		 */
 		void createTable(std::string cmd);
+
+		/**
+		 * @brief Close the database. To be call at the end of program
+		 * 
+		 */
 		void closeDB();
 	};
 }

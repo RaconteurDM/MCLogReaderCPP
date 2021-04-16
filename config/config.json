@@ -34,7 +34,8 @@
     },
     "MCRLLogs" : {
         "display" : {
-            "ModuleLoad" : true
+            "ModuleLoad" : true,
+            "db" : true
         }
     }
 }

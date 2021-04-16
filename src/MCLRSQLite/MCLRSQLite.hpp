@@ -55,6 +55,8 @@ namespace MCLR
 		 */
 		void createTable(std::string cmd);
 
+		void insertInTable(std::string cmd);
+
 		/**
 		 * @brief Close the database. To be call at the end of program
 		 * 

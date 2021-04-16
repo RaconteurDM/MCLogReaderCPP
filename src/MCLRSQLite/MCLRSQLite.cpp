@@ -12,6 +12,7 @@
 #include "MCLRSQLite.hpp"
 #include "sqlite3.h"
 #include "MCLRInfo.hpp"
+#include "Regex.hpp"
 
 using namespace MCLR;
 
@@ -20,6 +21,7 @@ MCLRSQLite::MCLRSQLite()
     if (_init)
     {
         initDB();
+        _init = false;
     }
 }
 
@@ -37,15 +39,33 @@ void MCLRSQLite::initDB()
 
 void MCLRSQLite::createTable(std::string cmd)
 {
+    auto rgx = MCLRRegex("CREATE TABLE .*\\(.*\\)");
     int exit = 0;
     char* messaggeError;
     exit = sqlite3_exec(_DB, cmd.c_str(), NULL, 0, &messaggeError);
     MCLRLogs("db", "DB", "Creating table:\n\r" + cmd);
+    if (!rgx.match(cmd))
+        throw MCLRError("Error in table initialazing: cmd is not a create command", "MCLRSQLite::createTable");
     if (exit != SQLITE_OK) {
         sqlite3_free(messaggeError);
         throw MCLRError("Error in table initialazing", "MCLRSQLite::createTable");
     }
     MCLRLogs("db", "DB", "Table created");
+}
+
+void MCLRSQLite::insertInTable(std::string cmd)
+{
+    auto rgx = MCLRRegex("CREATE TABLE .*\\(.*\\)");
+    char* messaggeError;
+    int exit = 0;
+
+    exit = sqlite3_exec(_DB, cmd.c_str(), NULL, 0, &messaggeError);
+    MCLRLogs("db", "DB", "Insert in table:\n\r" + cmd);
+    if (exit != SQLITE_OK) {
+        sqlite3_free(messaggeError);
+        throw MCLRError("Error in table insert", "MCLRSQLite::insertInTable");
+    }
+    MCLRLogs("db", "DB", "Data inserted");
 }
 
 void MCLRSQLite::closeDB()

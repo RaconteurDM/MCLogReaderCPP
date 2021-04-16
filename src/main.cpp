@@ -16,7 +16,9 @@ int main(int ac, char **av)
 {
     try {
         MCLR::MCLRLogs();
-        MCLRSQLite().createTable("CREATE TABLE IF NOT EXISTS PERSON(ID INT PRIMARY KEY NOT NULL, NAME TEXT NOT NULL, SURNAME TEXT NOT NULL, AGE INT NOT NULL, ADDRESS CHAR(50), SALARY REAL )");
+        MCLRSQLite().createTable("CREATE TABLE IF NOT EXISTS Files(id integer PRIMARY KEY, name text UNIQUE)");
+        MCLRSQLite().insertInTable("INSERT INTO Files VALUES('test')");
+        MCLRSQLite().closeDB();
     } catch (const MCLR::MCLRError &e){
         std::cout << "Where: " + e.getWhere() + "What: " + e.getWhat() << std::endl;
     }

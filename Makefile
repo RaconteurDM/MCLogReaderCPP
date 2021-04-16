@@ -27,8 +27,8 @@ compil:
 	g++ $(SRC) $(INCLUDE) $(FLAGS) -o $(EXEC) *.o
 
 clean:
-	del src/sqlite3/sqlite3.o
+	if exist sqlite3.o del sqlite3.o
 
 fclean:
 	make clean
-	del .\MCLogReader.exe
+	if exist .\MCLogReader.exe del .\MCLogReader.exe

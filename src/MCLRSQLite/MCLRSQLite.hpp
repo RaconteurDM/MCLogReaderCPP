@@ -10,6 +10,7 @@
  */
 
 #include <iostream>
+#include "sqlite3.h"
 
 namespace MCLR
 {
@@ -23,6 +24,10 @@ namespace MCLR
 		static bool _init;
 		static sqlite3* _DB;
 
+		/**
+		 * @brief Initialize the DB
+		 * 
+		 */
 		void initDB();
 	public:
 		/**

@@ -23,6 +23,7 @@ namespace MCLR
 	private:
 		static bool _init;
 		static sqlite3* _DB;
+		static std::map<std::string, std::string> _lastFetch;
 
 		/**
 		 * @brief Initialize the DB
@@ -55,7 +56,40 @@ namespace MCLR
 		 */
 		void createTable(std::string cmd);
 
+		/**
+		 * @brief Insert in a table with 'cmd' as sql command
+		 * 
+		 * @param cmd 
+		 */
 		void insertInTable(std::string cmd);
+
+		/**
+		 * @brief Return the values from last fetch
+		 * 
+		 * @return std::map<std::string, std::string> 
+		 */
+		std::map<std::string, std::string> getCallback();
+
+		/**
+		 * @brief Clear value from last fetch
+		 * 
+		 */
+		void clearCallback();
+
+		/**
+		 * @brief Set a value from the last fetch
+		 * 
+		 * @param key 
+		 * @param value 
+		 */
+		void setCallback(std::string key, std::string value);
+
+		/**
+		 * @brief Fetch from a table with 'cmd' as sql command
+		 * 
+		 * @param cmd 
+		 */
+		void fetchFromTable(std::string cmd);
 
 		/**
 		 * @brief Close the database. To be call at the end of program

@@ -72,6 +72,49 @@ void MCLRSQLite::insertInTable(std::string cmd)
     }
 }
 
+static int callback(void *data, int argc, char **argv, char **azColName)
+{
+    MCLRSQLite().clearCallback();
+    for(int i = 0; i < argc; i++){
+        if (azColName[i] != NULL && argv[i] != NULL)
+            MCLRSQLite().setCallback(azColName[i], argv[i]);
+    }
+    return 0;
+}
+
+void MCLRSQLite::setCallback(std::string key, std::string value)
+{
+    _lastFetch[key] = value;
+}
+
+std::map<std::string, std::string> MCLRSQLite::getCallback()
+{
+    return _lastFetch;
+}
+
+void MCLRSQLite::clearCallback()
+{
+    _lastFetch.clear();
+}
+
+void MCLRSQLite::fetchFromTable(std::string cmd)
+{
+    auto rgx = MCLRRegex("SELECT \\* FROM .*");
+    char* messaggeError;
+    int exit = 0;
+
+    exit = sqlite3_exec(_DB, cmd.c_str(), NULL, 0, &messaggeError);
+    MCLRLogs("db", "DB", "Fetch from table:\n\r" + cmd);
+    if (!rgx.match(cmd))
+        throw MCLRError("Error in table select: cmd is not a select command", "MCLRSQLite::fetchFromTable");
+    if (exit != SQLITE_OK) {
+        MCLRLogs("db", "DB", "ECHEC: " + std::string(messaggeError));
+        sqlite3_free(messaggeError);
+    } else {
+        MCLRLogs("db", "DB", "Data fetched");
+    }
+}
+
 void MCLRSQLite::closeDB()
 {
     sqlite3_close(_DB);
@@ -79,4 +122,7 @@ void MCLRSQLite::closeDB()
 }
 
 bool MCLRSQLite::_init = true;
+
 sqlite3* MCLRSQLite::_DB = NULL;
+
+std::map<std::string, std::string> MCLRSQLite::_lastFetch = std::map<std::string, std::string>();

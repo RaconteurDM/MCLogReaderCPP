@@ -24,7 +24,8 @@ int main(int ac, char **av)
         MCLR::MCLRLogs();
         MCLRSQLite().createTable("CREATE TABLE IF NOT EXISTS Files(id integer PRIMARY KEY, name text UNIQUE, test integer)");
         MCLRSQLite().insertInTable("Files", testmap);
-        std::vector<std::map<std::string, std::string>> test = MCLRSQLite().fetchFromTable("SELECT * FROM Files");
+        //std::vector<std::map<std::string, std::string>> test = MCLRSQLite().fetchFromTable("SELECT * FROM Files");
+        std::vector<std::map<std::string, std::string>> test = MCLRSQLite().fetchFromTable("Files", testmap);
         for (auto it = test.begin(); it != test.end(); it++) {
             std::cout << "{" << std::endl;
             for (auto itt = it->begin(); itt != it->end(); itt++)

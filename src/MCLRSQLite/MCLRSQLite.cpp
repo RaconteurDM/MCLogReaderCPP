@@ -140,6 +140,22 @@ std::vector<std::map<std::string, std::string>> MCLRSQLite::fetchFromTable(std::
     return getCallback();
 }
 
+std::vector<std::map<std::string, std::string>> MCLRSQLite::fetchFromTable(std::string table, std::map<std::string, std::string> values)
+{
+    std::string cmd = "SELECT * FROM Files WHERE ";
+    std::vector<std::string> cond;
+
+    for (auto it = values.begin(); it != values.end(); it++) {
+        cond.push_back(it->first + " = " + it->second); 
+    }
+    for (auto it = cond.begin(); it != cond.end(); it++) {
+        cmd += *it;
+        if (it + 1 != cond.end())
+            cmd += " AND ";
+    }
+    return (fetchFromTable(cmd));
+}
+
 void MCLRSQLite::closeDB()
 {
     sqlite3_close(_DB);

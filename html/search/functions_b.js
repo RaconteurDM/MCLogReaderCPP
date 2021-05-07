@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['verif_103',['verif',['../class_m_c_l_r_1_1_json_value_verif.html#a96a04aa476ac0e9e808311f0d88aa2bf',1,'MCLR::JsonValueVerif']]],
-  ['verifydbinit_104',['verifyDBInit',['../class_m_c_l_r_1_1_m_c_l_r_s_q_lite.html#a8fc6a1b14b270f75d729f0b444afc9dd',1,'MCLR::MCLRSQLite']]]
+  ['table_111',['Table',['../class_m_c_l_r_1_1_table.html#a3805c584b073fd6bbd2593c07468f6b7',1,'MCLR::Table']]],
+  ['tokenize_112',['tokenize',['../class_m_c_l_r_1_1_m_c_l_r_regex.html#a49414cdb9164f7d2187e5b427d5d8ef5',1,'MCLR::MCLRRegex']]]
 ];

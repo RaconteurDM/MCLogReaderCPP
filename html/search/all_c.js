@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['wjson_2ecpp_42',['WJson.cpp',['../_w_json_8cpp.html',1,'']]],
-  ['wjson_2ehpp_43',['WJson.hpp',['../_w_json_8hpp.html',1,'']]],
-  ['wjsondoc_44',['WJsonDoc',['../class_m_c_l_r_1_1_w_json_doc.html',1,'MCLR::WJsonDoc'],['../class_m_c_l_r_1_1_w_json_doc.html#a106a77f96aceb8e9ee553edbecffb875',1,'MCLR::WJsonDoc::WJsonDoc()']]]
+  ['verif_44',['verif',['../class_m_c_l_r_1_1_json_value_verif.html#a96a04aa476ac0e9e808311f0d88aa2bf',1,'MCLR::JsonValueVerif']]],
+  ['verifstypes_45',['verifsTypes',['../_w_json_8hpp.html#af163680ca044ab4d0690bf1617582201',1,'MCLR']]],
+  ['verifydbinit_46',['verifyDBInit',['../class_m_c_l_r_1_1_m_c_l_r_s_q_lite.html#a8fc6a1b14b270f75d729f0b444afc9dd',1,'MCLR::MCLRSQLite']]]
 ];

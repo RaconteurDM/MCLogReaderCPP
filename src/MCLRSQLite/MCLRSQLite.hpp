@@ -10,12 +10,14 @@
  */
 
 #include <iostream>
+#include <map>
+#include <vector>
 #include "sqlite3.h"
 
 namespace MCLR
 {
 	/**
-	 * @brief Class handler for SQLite in MCLR app
+	 * @brief Class handler for SQLite in MCLR app.
 	 * 
 	 */
 	class MCLRSQLite
@@ -23,7 +25,7 @@ namespace MCLR
 	private:
 		static bool _init;
 		static sqlite3* _DB;
-		static std::map<std::string, std::string> _lastFetch;
+		static std::vector<std::map<std::string, std::string>> _lastFetch;
 
 		/**
 		 * @brief Initialize the DB
@@ -63,12 +65,14 @@ namespace MCLR
 		 */
 		void insertInTable(std::string cmd);
 
+		void insertInTable(std::string table, std::map<std::string, std::string> values);
+
 		/**
 		 * @brief Return the values from last fetch
 		 * 
 		 * @return std::map<std::string, std::string> 
 		 */
-		std::map<std::string, std::string> getCallback();
+		std::vector<std::map<std::string, std::string>> getCallback();
 
 		/**
 		 * @brief Clear value from last fetch
@@ -77,7 +81,7 @@ namespace MCLR
 		void clearCallback();
 
 		/**
-		 * @brief Set a value from the last fetch
+		 * @brief Set a value for last created callback line
 		 * 
 		 * @param key 
 		 * @param value 
@@ -85,11 +89,19 @@ namespace MCLR
 		void setCallback(std::string key, std::string value);
 
 		/**
+		 * @brief Set a new call back line
+		 * 
+		 * @param key 
+		 * @param value 
+		 */
+		void addCallback();
+
+		/**
 		 * @brief Fetch from a table with 'cmd' as sql command
 		 * 
 		 * @param cmd 
 		 */
-		void fetchFromTable(std::string cmd);
+		std::vector<std::map<std::string, std::string>> fetchFromTable(std::string cmd);
 
 		/**
 		 * @brief Close the database. To be call at the end of program

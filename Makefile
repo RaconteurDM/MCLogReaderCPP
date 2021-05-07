@@ -8,7 +8,7 @@ SRC = src/*/*.cpp src/main.cpp
 
 INCLUDE = -I./src\WJson -I./src\rapidjson\ -I.\src\MCLRInfo\ -I.\src\Config\ -I.\src\Modules\ -I.\src\Regex\ -I.\src\sqlite3 -I.\src\MCLRSQLite
 
-FLAGS = -std=c++17
+FLAGS = -std=c++17 -DTHREADSAFE=1
 
 DEBUG = -g -g3 -ggdb
 
@@ -17,14 +17,14 @@ all:
 
 re:
 	make fclean
+	make compilc
 	make compil
 
 compilc:
 	gcc $(CSRC) -c
 
 compil:
-	make compilc
-	g++ $(SRC) $(INCLUDE) $(FLAGS) -o $(EXEC) *.o
+	g++ $(SRC) $(INCLUDE) $(FLAGS) -o $(EXEC) *.o $(DEBUG)
 
 clean:
 	if exist sqlite3.o del sqlite3.o

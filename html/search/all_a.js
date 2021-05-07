@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['table_35',['Table',['../class_m_c_l_r_1_1_table.html',1,'MCLR::Table'],['../class_m_c_l_r_1_1_table.html#a3805c584b073fd6bbd2593c07468f6b7',1,'MCLR::Table::Table()']]],
-  ['table_2ecpp_36',['Table.cpp',['../_table_8cpp.html',1,'']]],
-  ['table_2ehpp_37',['Table.hpp',['../_table_8hpp.html',1,'']]],
-  ['tokenize_38',['tokenize',['../class_m_c_l_r_1_1_m_c_l_r_regex.html#a49414cdb9164f7d2187e5b427d5d8ef5',1,'MCLR::MCLRRegex']]]
+  ['setcallback_38',['setCallback',['../class_m_c_l_r_1_1_m_c_l_r_s_q_lite.html#ab22f942d7f444460f296233af22f2689',1,'MCLR::MCLRSQLite']]],
+  ['split_39',['split',['../class_m_c_l_r_1_1_m_c_l_r_regex.html#ad3925c1cc57771d5a8d832bee9fa6cdd',1,'MCLR::MCLRRegex']]]
 ];

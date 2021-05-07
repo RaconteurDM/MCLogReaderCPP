@@ -23,6 +23,17 @@ void \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_s_q_lite_a8fc6a1b14b270f75d729f0
 \begin{DoxyCompactList}\small\item\em Throw if the DB is not initialize yet. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_s_q_lite_abf5655fcf20f0852ca52c70bcbcce8d6}{create\+Table}} (std\+::string cmd)
 \begin{DoxyCompactList}\small\item\em Create a table with \textquotesingle{}cmd\textquotesingle{} as sql command. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_s_q_lite_a1e4019948b4685fccb856f796e610f3c}{insert\+In\+Table}} (std\+::string cmd)
+\begin{DoxyCompactList}\small\item\em Insert in a table with \textquotesingle{}cmd\textquotesingle{} as sql command. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_s_q_lite_a9354a781a971786f4c69ee9304acd081}{get\+Callback}} ()
+\begin{DoxyCompactList}\small\item\em Return the values from last fetch. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_m_c_l_r_1_1_m_c_l_r_s_q_lite_ac8d47db12b3343ab628ead6a2564f824}\label{class_m_c_l_r_1_1_m_c_l_r_s_q_lite_ac8d47db12b3343ab628ead6a2564f824}} 
+void \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_s_q_lite_ac8d47db12b3343ab628ead6a2564f824}{clear\+Callback}} ()
+\begin{DoxyCompactList}\small\item\em Clear value from last fetch. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_s_q_lite_ab22f942d7f444460f296233af22f2689}{set\+Callback}} (std\+::string key, std\+::string value)
+\begin{DoxyCompactList}\small\item\em Set a value from the last fetch. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_s_q_lite_afff3d7cbed42c2c785b367a72c0e6069}{fetch\+From\+Table}} (std\+::string cmd)
+\begin{DoxyCompactList}\small\item\em Fetch from a table with \textquotesingle{}cmd\textquotesingle{} as sql command. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_m_c_l_r_1_1_m_c_l_r_s_q_lite_aa5c5e3bc3659e9c88838415f546840a4}\label{class_m_c_l_r_1_1_m_c_l_r_s_q_lite_aa5c5e3bc3659e9c88838415f546840a4}} 
 void \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_s_q_lite_aa5c5e3bc3659e9c88838415f546840a4}{close\+DB}} ()
 \begin{DoxyCompactList}\small\item\em Close the database. To be call at the end of program. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -31,7 +42,7 @@ void \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_s_q_lite_aa5c5e3bc3659e9c8883841
 \doxysubsection{Detailed Description}
 Class handler for SQLite in MCLR app. 
 
-Definition at line 20 of file MCLRSQLite.\+hpp.
+Definition at line 21 of file MCLRSQLite.\+hpp.
 
 
 
@@ -53,21 +64,155 @@ Create a table with \textquotesingle{}cmd\textquotesingle{} as sql command.
 \end{DoxyParams}
 
 
-Definition at line 38 of file MCLRSQLite.\+cpp.
+Definition at line 40 of file MCLRSQLite.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{39 \{}
-\DoxyCodeLine{40     \textcolor{keywordtype}{int} exit = 0;}
-\DoxyCodeLine{41     \textcolor{keywordtype}{char}* messaggeError;}
-\DoxyCodeLine{42     exit = sqlite3\_exec(\_DB, cmd.c\_str(), NULL, 0, \&messaggeError);}
-\DoxyCodeLine{43     \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_logs}{MCLRLogs}}(\textcolor{stringliteral}{"{}db"{}}, \textcolor{stringliteral}{"{}DB"{}}, \textcolor{stringliteral}{"{}Creating table:\(\backslash\)n\(\backslash\)r"{}} + cmd);}
-\DoxyCodeLine{44     \textcolor{keywordflow}{if} (exit != SQLITE\_OK) \{}
-\DoxyCodeLine{45         sqlite3\_free(messaggeError);}
-\DoxyCodeLine{46         \textcolor{keywordflow}{throw} \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_error}{MCLRError}}(\textcolor{stringliteral}{"{}Error in table initialazing"{}}, \textcolor{stringliteral}{"{}MCLRSQLite::createTable"{}});}
-\DoxyCodeLine{47     \}}
-\DoxyCodeLine{48     \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_logs}{MCLRLogs}}(\textcolor{stringliteral}{"{}db"{}}, \textcolor{stringliteral}{"{}DB"{}}, \textcolor{stringliteral}{"{}Table created"{}});}
-\DoxyCodeLine{49 \}}
+\DoxyCodeLine{41 \{}
+\DoxyCodeLine{42     \textcolor{keyword}{auto} rgx = \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_regex}{MCLRRegex}}(\textcolor{stringliteral}{"{}CREATE TABLE .*\(\backslash\)\(\backslash\)(.*\(\backslash\)\(\backslash\))"{}});}
+\DoxyCodeLine{43     \textcolor{keywordtype}{int} exit = 0;}
+\DoxyCodeLine{44     \textcolor{keywordtype}{char}* messaggeError;}
+\DoxyCodeLine{45     exit = sqlite3\_exec(\_DB, cmd.c\_str(), NULL, 0, \&messaggeError);}
+\DoxyCodeLine{46     \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_logs}{MCLRLogs}}(\textcolor{stringliteral}{"{}db"{}}, \textcolor{stringliteral}{"{}DB"{}}, \textcolor{stringliteral}{"{}Creating table:\(\backslash\)n\(\backslash\)r"{}} + cmd);}
+\DoxyCodeLine{47     \textcolor{keywordflow}{if} (!rgx.match(cmd))}
+\DoxyCodeLine{48         \textcolor{keywordflow}{throw} \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_error}{MCLRError}}(\textcolor{stringliteral}{"{}Error in table initialazing: cmd is not a create command"{}}, \textcolor{stringliteral}{"{}MCLRSQLite::createTable"{}});}
+\DoxyCodeLine{49     \textcolor{keywordflow}{if} (exit != SQLITE\_OK) \{}
+\DoxyCodeLine{50         \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_logs}{MCLRLogs}}(\textcolor{stringliteral}{"{}db"{}}, \textcolor{stringliteral}{"{}DB"{}}, \textcolor{stringliteral}{"{}ECHEC: "{}} + std::string(messaggeError));}
+\DoxyCodeLine{51         sqlite3\_free(messaggeError);}
+\DoxyCodeLine{52         \textcolor{keywordflow}{throw} \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_error}{MCLRError}}(\textcolor{stringliteral}{"{}Error in table initialazing"{}}, \textcolor{stringliteral}{"{}MCLRSQLite::createTable"{}});}
+\DoxyCodeLine{53     \}}
+\DoxyCodeLine{54     \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_logs}{MCLRLogs}}(\textcolor{stringliteral}{"{}db"{}}, \textcolor{stringliteral}{"{}DB"{}}, \textcolor{stringliteral}{"{}Table created"{}});}
+\DoxyCodeLine{55 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_m_c_l_r_1_1_m_c_l_r_s_q_lite_afff3d7cbed42c2c785b367a72c0e6069}\label{class_m_c_l_r_1_1_m_c_l_r_s_q_lite_afff3d7cbed42c2c785b367a72c0e6069}} 
+\index{MCLR::MCLRSQLite@{MCLR::MCLRSQLite}!fetchFromTable@{fetchFromTable}}
+\index{fetchFromTable@{fetchFromTable}!MCLR::MCLRSQLite@{MCLR::MCLRSQLite}}
+\doxysubsubsection{\texorpdfstring{fetchFromTable()}{fetchFromTable()}}
+{\footnotesize\ttfamily void MCLRSQLite\+::fetch\+From\+Table (\begin{DoxyParamCaption}\item[{std\+::string}]{cmd }\end{DoxyParamCaption})}
+
+
+
+Fetch from a table with \textquotesingle{}cmd\textquotesingle{} as sql command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 100 of file MCLRSQLite.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{101 \{}
+\DoxyCodeLine{102     \textcolor{keyword}{auto} rgx = \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_regex}{MCLRRegex}}(\textcolor{stringliteral}{"{}SELECT \(\backslash\)\(\backslash\)* FROM .*"{}});}
+\DoxyCodeLine{103     \textcolor{keywordtype}{char}* messaggeError;}
+\DoxyCodeLine{104     \textcolor{keywordtype}{int} exit = 0;}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106     exit = sqlite3\_exec(\_DB, cmd.c\_str(), NULL, 0, \&messaggeError);}
+\DoxyCodeLine{107     \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_logs}{MCLRLogs}}(\textcolor{stringliteral}{"{}db"{}}, \textcolor{stringliteral}{"{}DB"{}}, \textcolor{stringliteral}{"{}Fetch from table:\(\backslash\)n\(\backslash\)r"{}} + cmd);}
+\DoxyCodeLine{108     \textcolor{keywordflow}{if} (!rgx.match(cmd))}
+\DoxyCodeLine{109         \textcolor{keywordflow}{throw} \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_error}{MCLRError}}(\textcolor{stringliteral}{"{}Error in table select: cmd is not a select command"{}}, \textcolor{stringliteral}{"{}MCLRSQLite::fetchFromTable"{}});}
+\DoxyCodeLine{110     \textcolor{keywordflow}{if} (exit != SQLITE\_OK) \{}
+\DoxyCodeLine{111         \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_logs}{MCLRLogs}}(\textcolor{stringliteral}{"{}db"{}}, \textcolor{stringliteral}{"{}DB"{}}, \textcolor{stringliteral}{"{}ECHEC: "{}} + std::string(messaggeError));}
+\DoxyCodeLine{112         sqlite3\_free(messaggeError);}
+\DoxyCodeLine{113     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{114         \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_logs}{MCLRLogs}}(\textcolor{stringliteral}{"{}db"{}}, \textcolor{stringliteral}{"{}DB"{}}, \textcolor{stringliteral}{"{}Data fetched"{}});}
+\DoxyCodeLine{115     \}}
+\DoxyCodeLine{116 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_m_c_l_r_1_1_m_c_l_r_s_q_lite_a9354a781a971786f4c69ee9304acd081}\label{class_m_c_l_r_1_1_m_c_l_r_s_q_lite_a9354a781a971786f4c69ee9304acd081}} 
+\index{MCLR::MCLRSQLite@{MCLR::MCLRSQLite}!getCallback@{getCallback}}
+\index{getCallback@{getCallback}!MCLR::MCLRSQLite@{MCLR::MCLRSQLite}}
+\doxysubsubsection{\texorpdfstring{getCallback()}{getCallback()}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, std\+::string $>$ MCLRSQLite\+::get\+Callback (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return the values from last fetch. 
+
+\begin{DoxyReturn}{Returns}
+std\+::map$<$std\+::string, std\+::string$>$ 
+\end{DoxyReturn}
+
+
+Definition at line 90 of file MCLRSQLite.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{91 \{}
+\DoxyCodeLine{92     \textcolor{keywordflow}{return} \_lastFetch;}
+\DoxyCodeLine{93 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_m_c_l_r_1_1_m_c_l_r_s_q_lite_a1e4019948b4685fccb856f796e610f3c}\label{class_m_c_l_r_1_1_m_c_l_r_s_q_lite_a1e4019948b4685fccb856f796e610f3c}} 
+\index{MCLR::MCLRSQLite@{MCLR::MCLRSQLite}!insertInTable@{insertInTable}}
+\index{insertInTable@{insertInTable}!MCLR::MCLRSQLite@{MCLR::MCLRSQLite}}
+\doxysubsubsection{\texorpdfstring{insertInTable()}{insertInTable()}}
+{\footnotesize\ttfamily void MCLRSQLite\+::insert\+In\+Table (\begin{DoxyParamCaption}\item[{std\+::string}]{cmd }\end{DoxyParamCaption})}
+
+
+
+Insert in a table with \textquotesingle{}cmd\textquotesingle{} as sql command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 57 of file MCLRSQLite.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{58 \{}
+\DoxyCodeLine{59     \textcolor{keyword}{auto} rgx = \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_regex}{MCLRRegex}}(\textcolor{stringliteral}{"{}INSERT INTO .*\(\backslash\)\(\backslash\)(.*\(\backslash\)\(\backslash\)) VALUES\(\backslash\)\(\backslash\)(.*\(\backslash\)\(\backslash\))"{}});}
+\DoxyCodeLine{60     \textcolor{keywordtype}{char}* messaggeError;}
+\DoxyCodeLine{61     \textcolor{keywordtype}{int} exit = 0;}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     exit = sqlite3\_exec(\_DB, cmd.c\_str(), NULL, 0, \&messaggeError);}
+\DoxyCodeLine{64     \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_logs}{MCLRLogs}}(\textcolor{stringliteral}{"{}db"{}}, \textcolor{stringliteral}{"{}DB"{}}, \textcolor{stringliteral}{"{}Insert in table:\(\backslash\)n\(\backslash\)r"{}} + cmd);}
+\DoxyCodeLine{65     \textcolor{keywordflow}{if} (!rgx.match(cmd))}
+\DoxyCodeLine{66         \textcolor{keywordflow}{throw} \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_error}{MCLRError}}(\textcolor{stringliteral}{"{}Error in table insert: cmd is not an insert command"{}}, \textcolor{stringliteral}{"{}MCLRSQLite::insertInTable"{}});}
+\DoxyCodeLine{67     \textcolor{keywordflow}{if} (exit != SQLITE\_OK) \{}
+\DoxyCodeLine{68         \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_logs}{MCLRLogs}}(\textcolor{stringliteral}{"{}db"{}}, \textcolor{stringliteral}{"{}DB"{}}, \textcolor{stringliteral}{"{}ECHEC: "{}} + std::string(messaggeError));}
+\DoxyCodeLine{69         sqlite3\_free(messaggeError);}
+\DoxyCodeLine{70     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{71         \mbox{\hyperlink{class_m_c_l_r_1_1_m_c_l_r_logs}{MCLRLogs}}(\textcolor{stringliteral}{"{}db"{}}, \textcolor{stringliteral}{"{}DB"{}}, \textcolor{stringliteral}{"{}Data inserted"{}});}
+\DoxyCodeLine{72     \}}
+\DoxyCodeLine{73 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_m_c_l_r_1_1_m_c_l_r_s_q_lite_ab22f942d7f444460f296233af22f2689}\label{class_m_c_l_r_1_1_m_c_l_r_s_q_lite_ab22f942d7f444460f296233af22f2689}} 
+\index{MCLR::MCLRSQLite@{MCLR::MCLRSQLite}!setCallback@{setCallback}}
+\index{setCallback@{setCallback}!MCLR::MCLRSQLite@{MCLR::MCLRSQLite}}
+\doxysubsubsection{\texorpdfstring{setCallback()}{setCallback()}}
+{\footnotesize\ttfamily void MCLRSQLite\+::set\+Callback (\begin{DoxyParamCaption}\item[{std\+::string}]{key,  }\item[{std\+::string}]{value }\end{DoxyParamCaption})}
+
+
+
+Set a value from the last fetch. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 85 of file MCLRSQLite.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{86 \{}
+\DoxyCodeLine{87     \_lastFetch[key] = value;}
+\DoxyCodeLine{88 \}}
 
 \end{DoxyCode}
 

@@ -43,7 +43,7 @@ void MCLRSQLite::createTable(std::string cmd)
     int exit = 0;
     char* messaggeError;
     exit = sqlite3_exec(_DB, cmd.c_str(), NULL, 0, &messaggeError);
-    MCLRLogs("db", "DB", "Creating table:\n\r" + cmd);
+    MCLRLogs("db", "DB", "Creating table: " + cmd);
     if (!rgx.match(cmd))
         throw MCLRError("Error in table initialazing: cmd is not a create command", "MCLRSQLite::createTable");
     if (exit != SQLITE_OK) {
@@ -54,14 +54,14 @@ void MCLRSQLite::createTable(std::string cmd)
     MCLRLogs("db", "DB", "Table created");
 }
 
-void MCLRSQLite::insertInTable(std::string cmd)
+void MCLRSQLite::insertCmd(std::string cmd)
 {
     auto rgx = MCLRRegex("INSERT INTO .*\\(.*\\) VALUES\\(.*\\)");
     char* messaggeError;
     int exit = 0;
 
     exit = sqlite3_exec(_DB, cmd.c_str(), NULL, 0, &messaggeError);
-    MCLRLogs("db", "DB", "Insert in table:\n\r" + cmd);
+    MCLRLogs("db", "DB", "Insert in table: " + cmd);
     if (!rgx.match(cmd))
         throw MCLRError("Error in table insert: cmd is not an insert command", "MCLRSQLite::insertInTable");
     if (exit != SQLITE_OK) {
@@ -85,7 +85,7 @@ void MCLRSQLite::insertInTable(std::string table, std::map<std::string, std::str
     snames.pop_back();
     svalues.pop_back();
     cmd += snames + ") VALUES(" + svalues + ")";
-    insertInTable(cmd);
+    insertCmd(cmd);
 }
 
 static int callback(void *data, int argc, char **argv, char **azColName)
@@ -121,14 +121,14 @@ void MCLRSQLite::clearCallback()
     _lastFetch.clear();
 }
 
-std::vector<std::map<std::string, std::string>> MCLRSQLite::fetchFromTable(std::string cmd)
+std::vector<std::map<std::string, std::string>> MCLRSQLite::fetchCmd(std::string cmd)
 {
     auto rgx = MCLRRegex("SELECT \\* FROM .*");
     char* messaggeError;
     int exit = 0;
 
     exit = sqlite3_exec(_DB, cmd.c_str(), &callback, 0, &messaggeError);
-    MCLRLogs("db", "DB", "Fetch from table:\n\r" + cmd);
+    MCLRLogs("db", "DB", "Fetch from table: " + cmd);
     if (!rgx.match(cmd))
         throw MCLRError("Error in table select: cmd is not a select command", "MCLRSQLite::fetchFromTable");
     if (exit != SQLITE_OK) {
@@ -153,7 +153,14 @@ std::vector<std::map<std::string, std::string>> MCLRSQLite::fetchFromTable(std::
         if (it + 1 != cond.end())
             cmd += " AND ";
     }
-    return (fetchFromTable(cmd));
+    return (fetchCmd(cmd));
+}
+
+std::vector<std::map<std::string, std::string>> MCLRSQLite::fetchFromTable(std::string table)
+{
+    std::string cmd = "SELECT * FROM " + table;
+
+    return (fetchCmd(cmd));
 }
 
 void MCLRSQLite::closeDB()

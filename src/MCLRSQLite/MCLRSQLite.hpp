@@ -63,7 +63,7 @@ namespace MCLR
 		 * 
 		 * @param cmd 
 		 */
-		void insertInTable(std::string cmd);
+		void insertCmd(std::string cmd);
 
 		/**
 		 * @brief Insert in a table with cmd got from a map
@@ -107,10 +107,12 @@ namespace MCLR
 		 * 
 		 * @param cmd 
 		 */
-		std::vector<std::map<std::string, std::string>> fetchFromTable(std::string cmd);
+		std::vector<std::map<std::string, std::string>> fetchCmd(std::string cmd);
 
 
 		std::vector<std::map<std::string, std::string>> fetchFromTable(std::string table, std::map<std::string, std::string> values);
+
+		std::vector<std::map<std::string, std::string>> fetchFromTable(std::string table);
 
 		/**
 		 * @brief Close the database. To be call at the end of program

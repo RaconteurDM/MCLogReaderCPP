@@ -58,5 +58,7 @@ namespace MCLR
          * @return std::string 
          */
         std::string concat();
+
+        inline std::string getName() { return (_name); };
     };
 }

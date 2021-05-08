@@ -12,6 +12,7 @@
 #include "Module.hpp"
 #include "WJson.hpp"
 #include "MCLRInfo.hpp"
+#include "MCLRSQLite.hpp"
 
 #include "Table.hpp"
 
@@ -39,4 +40,12 @@ void Module::verifyModule(std::string JSONfile)
     JsonValueVerif().verif("name", STRING, _JSON["settings"], true, true);
     _name = _JSON["settings"]["name"].GetString();
     JsonValueVerif().verif("tables", ARRAY, _JSON, true, true);
+}
+
+void Module::initSQL()
+{
+    for (auto it = _tableList.begin(); it != _tableList.end(); it++)
+    {
+        MCLRSQLite().createTable("CREATE TABLE IF NOT EXISTS " + it->getName() + "(" + it->concat() + ")");
+    }
 }

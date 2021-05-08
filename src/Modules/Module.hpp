@@ -59,5 +59,7 @@ namespace MCLR
          * @param JSONfile 
          */
         void loadTables(std::string JSONfile);
+
+        void initSQL();
     };
 }

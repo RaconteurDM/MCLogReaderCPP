@@ -36,7 +36,7 @@
                 }
             ],
             "constraints" : [
-                "FOREIGN KEY fileid REFERENCES files(id) ON UPDATE CASCADE ON DELETE CASCADE"
+                "FOREIGN KEY (fileid) REFERENCES files(id) ON UPDATE CASCADE ON DELETE CASCADE"
             ]
         }
     ],

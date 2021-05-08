@@ -72,7 +72,7 @@ void MCLRSQLite::insertCmd(std::string cmd)
     }
 }
 
-void MCLRSQLite::insertInTable(std::string table, std::map<std::string, std::string> values)
+void MCLRSQLite::insertInTable(std::string table, SQLFieldValues values)
 {
     std::string cmd = "INSERT INTO " + table + "(";
     std::string snames = "";
@@ -140,7 +140,7 @@ std::vector<std::map<std::string, std::string>> MCLRSQLite::fetchCmd(std::string
     return getCallback();
 }
 
-std::vector<std::map<std::string, std::string>> MCLRSQLite::fetchFromTable(std::string table, std::map<std::string, std::string> values)
+std::vector<std::map<std::string, std::string>> MCLRSQLite::fetchFromTable(std::string table, SQLFieldValues values)
 {
     std::string cmd = "SELECT * FROM Files WHERE ";
     std::vector<std::string> cond;

@@ -16,6 +16,47 @@
 
 namespace MCLR
 {
+	class SQLFieldValues : public std::map<std::string, std::string>
+	{
+	public:
+
+		/**
+		 * @brief Construct a new SQLFieldValues object
+		 * 
+		 */
+		inline SQLFieldValues() : std::map<std::string, std::string>() {};
+
+		/**
+		 * @brief Destroy the SQLFieldValues object
+		 * 
+		 */
+		inline ~SQLFieldValues() {};
+
+		/**
+		 * @brief Bind a string value to a field
+		 * 
+		 * @param name 
+		 * @param value 
+		 */
+		inline void addFieldValue(std::string name, std::string value) { (*this)[name] = "'" + value + "'"; };
+
+		/**
+		 * @brief Bind a float value to a field
+		 * 
+		 * @param name 
+		 * @param value 
+		 */
+		void addFieldValue(std::string name, float value) { (*this)[name] = std::to_string(value); };
+
+		/**
+		 * @brief Bind an int value to a field
+		 * 
+		 * @param name 
+		 * @param value 
+		 */
+		inline void addFieldValue(std::string name, int value)  { (*this)[name] = std::to_string(value); };
+	};
+
 	/**
 	 * @brief Class handler for SQLite in MCLR app.
 	 * 
@@ -71,7 +112,7 @@ namespace MCLR
 		 * @param table 
 		 * @param values 
 		 */
-		void insertInTable(std::string table, std::map<std::string, std::string> values);
+		void insertInTable(std::string table, SQLFieldValues values);
 
 		/**
 		 * @brief Return the values from last fetch
@@ -110,7 +151,7 @@ namespace MCLR
 		std::vector<std::map<std::string, std::string>> fetchCmd(std::string cmd);
 
 
-		std::vector<std::map<std::string, std::string>> fetchFromTable(std::string table, std::map<std::string, std::string> values);
+		std::vector<std::map<std::string, std::string>> fetchFromTable(std::string table, SQLFieldValues values);
 
 		std::vector<std::map<std::string, std::string>> fetchFromTable(std::string table);
 
